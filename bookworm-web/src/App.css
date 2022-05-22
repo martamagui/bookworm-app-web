@@ -1,12 +1,53 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  width: 100vw;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.button-primary {
+  background-color: #9c4500;
+}
+
+.landing__container-top h2 {
+  background: linear-gradient(92.12deg, #e66d0a 1.18%, #e7e169 91.57%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 150% 200%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+  background-clip: text;
+}
+
 .unlogged_body {
   background-color: #331200;
   color: #ffff;
