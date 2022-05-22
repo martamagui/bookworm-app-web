@@ -1,0 +1,24 @@
+  // Reset
+@import "./base/reset";
+@import "./base/tailwind";
+// Abstracs
+@import "./abstracs/mixinsAndPlaceHolders";
+@import "./abstracs/variables";
+
+// Base
+@import "./base/typography";
+
+// Components
+@import "./components/buttons";
+
+//Views
+@import "./views/landing";
+
+
+//TODO, mover. Es provisional
+.unlogged_body{
+    background-color: #331200;
+    color: #ffff;
+    min-width: 100vw;
+    min-height: 100vh;
+}

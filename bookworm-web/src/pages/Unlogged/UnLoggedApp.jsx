@@ -8,13 +8,13 @@ import { AboutUs } from "./AboutUs/AboutUs";
 import { Login } from "./Login/Login";
 import { SignUp } from "./SingUp/SignUp";
 import { Contact } from "./Contact/Contact";
-import { NavigationBarLading } from "./Components/NavigationBarLanding";
+import { NavigationBarLading } from "../../components/NavigationBarLanding";
 import { Faq } from "./FAQ/Faq";
 
 
 export function UnLoggedApp() {
     return (
-        <>
+        <div className="unlogged_body px-36">
             <NavigationBarLading></NavigationBarLading>
             <Routes>
                 <Route path="/" element={<Landing />} />
@@ -24,6 +24,6 @@ export function UnLoggedApp() {
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/faq" element={<Faq />} />
             </Routes>
-        </>
+        </div>
     );
 }
