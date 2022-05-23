@@ -1,12 +1,30 @@
 .landing__container-top {
+  height: 91vh;
   h2 {
     background: $landingTitle;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 150% 200%;
-	animation: gradient 15s ease infinite;
+    animation: gradient 15s ease infinite;
     background-clip: text;
   }
+  .landing__container__col {
+    width: 40vw;
+  }
+  img {
+    width: 24vw;
+    transform: translateX(1px);
+  }
 }
-
-
+.landing__container-bot {
+  height: 93vh;
+  .content {
+    width: 40vw;
+  }
+  background-color: $surface-variant-light;
+  color: #331200;
+  .landing__container-bot__col-darkbrown {
+    background-color: #331200;
+    height: 93vh;
+  }
+}

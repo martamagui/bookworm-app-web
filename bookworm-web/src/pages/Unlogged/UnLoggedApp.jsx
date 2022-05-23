@@ -14,7 +14,7 @@ import { Faq } from "./FAQ/Faq";
 
 export function UnLoggedApp() {
     return (
-        <div className="unlogged_body px-36">
+        <div className="unlogged_body">
             <NavigationBarLading></NavigationBarLading>
             <Routes>
                 <Route path="/" element={<Landing />} />
