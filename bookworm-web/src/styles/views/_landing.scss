@@ -1,5 +1,5 @@
 .landing__container-top {
-  height: 91vh;
+  min-height: 91vh;
   h2 {
     background: $landingTitle;
     -webkit-background-clip: text;
@@ -17,7 +17,7 @@
   }
 }
 .landing__container-bot {
-  height: 93vh;
+  min-height: 93vh;
   .content {
     width: 40vw;
   }

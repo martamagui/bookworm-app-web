@@ -11,7 +11,7 @@ export function Landing() {
         <div className="landing__container__col self-center">
           <h2 className="big-web-titles font-semibold text-8xl">Find new adventures.</h2>
           <p className="headline-5 py-12">Share your favourites titles with your friends, follow other bookworms, save the most eyecatching stories... You wont ever find yourself wondering what to read next.</p>
-          <Link to="/login"><span className="button-primary rounded-full p-4 px-8">Tell me more</span></Link>
+          <Link to="/login"><span className="bg-primary rounded-full p-4 px-8">Tell me more</span></Link>
         </div>
         <img className="m-0" src={PicLandingArch} alt="Picture of the book: They both die at the end" />
       </div>
