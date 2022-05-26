@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
+
 //Inner imports
+import "./App.css";
 import { UnLoggedApp } from "./pages/Unlogged/UnLoggedApp"
 
 function App() {
