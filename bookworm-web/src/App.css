@@ -37,10 +37,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-.button-primary {
-  background-color: #9c4500;
-}
-
 .landing__container-top {
   min-height: 91vh;
 }
@@ -61,8 +57,8 @@
 
 .landing__container-top img {
   width: 24vw;
-  -webkit-transform: translateX(1px);
-          transform: translateX(1px);
+  -webkit-transform: translateX(0.5px);
+          transform: translateX(0.5px);
 }
 
 .landing__container-bot {

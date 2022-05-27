@@ -1,5 +1,5 @@
 import React from "react";
-import PicFaqArch from "../../../assets/images/pic_faq_arch.svg"
+import PicFaqArch from "../../../assets/images/pic_faq_arch.png"
 
 export function Faq() {
     return (

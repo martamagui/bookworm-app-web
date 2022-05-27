@@ -1,5 +1,5 @@
 import React from "react";
-import PicArch from "../../../assets/images/pic_about_arch.svg"
+import PicArch from "../../../assets/images/pic_about_arch.png"
 
 export function AboutUs() {
   return (

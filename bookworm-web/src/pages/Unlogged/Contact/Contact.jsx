@@ -1,5 +1,5 @@
 import React from "react";
-import PicArch from "../../../assets/images/pic_contact_arch.svg"
+import PicArch from "../../../assets/images/pic_contact_arch.png"
 
 export function Contact() {
   //TODO action

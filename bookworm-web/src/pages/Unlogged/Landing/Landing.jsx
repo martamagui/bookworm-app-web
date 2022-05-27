@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PicLandingArch from "../../../assets/images/pic_landing_arch.svg";
+import PicLandingArch from "../../../assets/images/pic_landing_arch.png";
 import PicGooglePlay from "../../../assets/images/pic_google_play.svg";
 import PicAppleStore from "../../../assets/images/pic_apple_store.svg";
 //Services
 import { fetchLogin } from "../../../service/userService"
+
 export function Landing() {
   fetchLogin("ana@mail.com", "123456");
   return (
