@@ -76,6 +76,38 @@
   height: 93vh;
 }
 
+.login__container {
+  position: relative;
+  overflow: hidden;
+  min-height: 95vh;
+}
+
+.login__container h2 {
+  background: linear-gradient(92.12deg, #e66d0a 1.18%, #e7e169 91.57%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 150% 200%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+  background-clip: text;
+}
+
+.login__bg {
+  position: absolute;
+  height: 150vh;
+  right: -20vh;
+  width: 150vh;
+  background-image: radial-gradient(#ff8c3f, #9198e500, #9198e500, #9198e500);
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+  background-size: 100%;
+  z-index: 1;
+}
+
+.login__container__col-images, .login__container__col-form {
+  z-index: 2;
+}
+
 .unlogged_body {
   background-color: #331200;
   color: #ffff;

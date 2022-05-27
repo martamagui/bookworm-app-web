@@ -1,0 +1,29 @@
+.login__container{
+    position: relative;
+    overflow: hidden;
+    min-height: 95vh;
+    h2 {
+        background: $landingTitle;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 150% 200%;
+        animation: gradient 15s ease infinite;
+        background-clip: text;
+      }
+}
+
+.login__bg{
+    position: absolute;
+    height: 150vh;
+    right: -20vh;
+    width: 150vh;
+    background-image: radial-gradient(#ff8c3f,#9198e500, #9198e500, #9198e500);
+    filter: blur(100px);
+    -webkit-filter: blur(100px);
+
+    background-size: 100%;
+    z-index: 1;
+}
+.login__container__col-images,.login__container__col-form{
+z-index: 2;
+}

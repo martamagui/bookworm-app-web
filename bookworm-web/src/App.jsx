@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 
 //Inner imports
 import "./App.css";
-import { UnLoggedApp } from "./pages/Unlogged/UnLoggedApp"
+import { UnLoggedRouting } from "./pages/Unlogged/unLoggedApp"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,8 +11,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <UnLoggedApp>
-        </UnLoggedApp>
+        <UnLoggedRouting>
+        </UnLoggedRouting>
       </BrowserRouter>
     </>
 

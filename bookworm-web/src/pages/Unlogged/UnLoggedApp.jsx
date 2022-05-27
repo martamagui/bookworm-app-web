@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 //Inner
-import { Landing } from "./Landing/Landing";
-import { AboutUs } from "./AboutUs/AboutUs";
-import { Login } from "./Login/Login";
-import { SignUp } from "./SingUp/SignUp";
-import { Contact } from "./Contact/Contact";
+import { Landing } from "./views/Landing";
+import { AboutUs } from "./views/AboutUs";
+import { Login } from "./views/Login";
+import { SignUp } from "./views/SignUp";
+import { Contact } from "./views/Contact";
+import { Faq } from "./views/Faq";
+import { NotFound } from "../notFound/NoFount";
 import { NavigationBarLading } from "../../components/NavigationBarLanding";
-import { Faq } from "./FAQ/Faq";
 
 
-export function UnLoggedApp() {
+export function UnLoggedRouting() {
     return (
         <div className="unlogged_body">
             <NavigationBarLading></NavigationBarLading>
@@ -23,6 +23,7 @@ export function UnLoggedApp() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/faq" element={<Faq />} />
+                <Route path="/*" element={<NotFound />} />
             </Routes>
         </div>
     );
