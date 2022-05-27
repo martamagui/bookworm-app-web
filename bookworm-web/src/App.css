@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 * {
   margin: 0px;
   padding: 0px;
@@ -35,6 +36,10 @@
 
 .big-web-titles, .headline-5 {
   font-family: "Poppins", sans-serif;
+}
+
+.title-large {
+  font-family: "Raleway", sans-serif;
 }
 
 .landing__container-top {
@@ -87,24 +92,54 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 150% 200%;
-  -webkit-animation: gradient 15s ease infinite;
-          animation: gradient 15s ease infinite;
   background-clip: text;
 }
 
 .login__bg {
   position: absolute;
-  height: 150vh;
-  right: -20vh;
-  width: 150vh;
-  background-image: radial-gradient(#ff8c3f, #9198e500, #9198e500, #9198e500);
-  filter: blur(100px);
-  -webkit-filter: blur(100px);
-  background-size: 100%;
+  top: 20vh;
+  right: 0;
+  height: 60vh;
+  width: 100vh;
+  overflow: hidden;
+  filter: blur(110px);
+  -webkit-filter: blur(110px);
+  background-size: 180%;
   z-index: 1;
+  -webkit-animation: gradient 9s ease infinite;
+          animation: gradient 9s ease infinite;
 }
 
-.login__container__col-images, .login__container__col-form {
+@keyframes gradient {
+  0% {
+    background-image: radial-gradient(#ff8c3f, #ff9c3f42, #9198e500, #9198e500);
+    background-position-x: 50%;
+    background-size: 180%;
+  }
+  25% {
+    background-image: radial-gradient(#ff934b, #ff9c3f42, #9198e500, #9198e500);
+    background-position-x: 52%;
+    background-size: 200%;
+  }
+  50% {
+    background-image: radial-gradient(#ff934b, #ff9c3f42, #9198e500, #9198e500);
+    background-position-x: 53%;
+    background-size: 250%;
+  }
+  75% {
+    background-image: radial-gradient(#ff934b, #ff9c3f42, #9198e500, #9198e500);
+    background-position-x: 52%;
+    background-size: 200%;
+  }
+  100% {
+    background-image: radial-gradient(#ff8c3f, #ff9c3f42, #9198e500, #9198e500);
+    background-position: 50%;
+    background-size: 180%;
+  }
+}
+
+.login__container__col-images,
+.login__container__col-form {
   z-index: 2;
 }
 

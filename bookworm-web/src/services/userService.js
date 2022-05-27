@@ -2,19 +2,6 @@ import { api } from "./axiosInstance";
 import { authConfig } from "./auth/userAuth";
 
 //-------------------> POST
-export const fetchLogin = async (user, pwd) => {
-  try {
-    let response = await api.post("/user/login", {
-      email: `${user}`,
-      password: `${pwd}`,
-    });
-    //      .then(({ response }) => response);
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const createAccount = async (
   userName,
   fullName,
@@ -50,7 +37,6 @@ export const createAccount = async (
 };
 
 //-------------------> GET
-
 export const getUserById = async (id) => {
   try {
     let response = await api

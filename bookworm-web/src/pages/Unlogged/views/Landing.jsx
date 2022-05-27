@@ -4,10 +4,9 @@ import PicLandingArch from "../../../assets/images/pic_landing_arch.png";
 import PicGooglePlay from "../../../assets/images/pic_google_play.svg";
 import PicAppleStore from "../../../assets/images/pic_apple_store.svg";
 //Services
-import { fetchLogin } from "../../../service/userService"
+import { fetchLogin } from "../../../services/auth/userAuth"
 
 export function Landing() {
-  fetchLogin("ana@mail.com", "123456");
   return (
     <div className="self-center">
       <div className="landing__container-top flex flex-row justify-between items-end px-48">

@@ -30,6 +30,7 @@ module.exports = {
       pink: colors.pink,
       rose: colors.rose,
       primary: "#9c4500",
+      "primary-dark": "#FFB68A",
       "on-primary": "#ffffff",
       "primary-container": "#ffdbc7",
       "on-primary-container": "#331100",
