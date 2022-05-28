@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 //---------Inner
 import ScreenShot1 from "../../../assets/images/pic_screenshot_1.png";
@@ -17,7 +18,7 @@ export function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    login(email, password)
+    login(email, password).then(useNavigate('/'))
   };
 
   //TODO add forgot your password to the server

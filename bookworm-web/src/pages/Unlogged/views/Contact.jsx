@@ -11,12 +11,12 @@ export function Contact() {
         <form action="">
           <div className="flex flex-col py-2">
             <label htmlFor="mail">Email</label>
-            <input className="rounded-xl my-3 p-2" type="text" id="mail" />
+            <input className="rounded-xl my-3 p-2" placeholder="@ Email" type="text" id="mail" />
           </div>
 
           <div className="flex flex-col py-3">
             <label htmlFor="mail-content">Mail content</label>
-            <textarea className="rounded-xl my-3" name="mail-content" id="mail-content" cols="30" rows="10"></textarea>
+            <textarea className="rounded-xl my-3 p-2" placeholder="Tell Us" name="mail-content" id="mail-content" cols="30" rows="10"></textarea>
           </div>
           <input className="bg-primary p-2 px-12 rounded-full" type="submit" value="Send" />
         </form>
