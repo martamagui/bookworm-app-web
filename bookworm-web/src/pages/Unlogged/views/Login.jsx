@@ -84,6 +84,7 @@ export function Login() {
         </div>
       </div>
       <div className="login__bg w-full"></div>
+
     </>
 
   );

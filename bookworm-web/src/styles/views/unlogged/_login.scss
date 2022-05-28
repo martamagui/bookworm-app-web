@@ -10,6 +10,10 @@
     background-clip: text;
   }
 }
+.login__container__col-images,
+.login__container__col-form {
+  z-index: 2;
+}
 
 .login__bg {
   position: absolute;
@@ -18,14 +22,16 @@
   height: 60vh;
   width: 100vh;
   overflow: hidden;
+  background-image: radial-gradient(#ff8c3f, #ff9c3f42, #9198e500, #9198e500);
+  background-position-x: 50%;
   filter: blur(110px);
   -webkit-filter: blur(110px);
   background-size: 180%;
   z-index: 1;
-  animation: gradient 9s ease infinite;
+  animation: gradient-animation 4.5s ease infinite;
 }
 
-@keyframes gradient {
+@keyframes gradient-animation {
   0% {
     background-image: radial-gradient(#ff8c3f, #ff9c3f42, #9198e500, #9198e500);
     background-position-x: 50%;
@@ -57,7 +63,3 @@
   }
 }
 
-.login__container__col-images,
-.login__container__col-form {
-  z-index: 2;
-}
