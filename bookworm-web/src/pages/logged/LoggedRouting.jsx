@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 //inner
 import { Detail } from "./views/Detail";
 import { Feed } from "./views/Feed";
 import { Profile } from "./views/Profile";
 import { NotFound } from "../notFound/NoFount";
-import { NavigationBarLading } from "../../components/NavigationBarLanding";
-
+import { NavigationBarLogged } from "../../components/NavigationBarLogged";
 
 export function LoggedRouting() {
     return (
         <div className="unlogged_body">
-            <NavigationBarLading></NavigationBarLading>
+            <NavigationBarLogged></NavigationBarLogged>
             <Routes>
                 <Route path="/" element={<Feed />} />
                 <Route path="/review/:id" element={<Detail />} />

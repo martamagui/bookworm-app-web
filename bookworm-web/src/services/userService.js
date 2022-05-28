@@ -32,7 +32,7 @@ export const createAccount = async (
       subscribedToNewsLetter: subscribedToNewsLetter,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -42,8 +42,8 @@ export const getUserById = async (id) => {
     let response = await api
       .get(`user/${id}`, { headers: authConfig })
       .then(({ response }) => response);
-    console.log(response);
+
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };

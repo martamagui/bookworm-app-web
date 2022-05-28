@@ -3,26 +3,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //Inner
 import { UnLoggedRouting } from "./unlogged/UnLoggedRouting";
 import { LoggedRouting } from "./logged/LoggedRouting";
+//Hooks
+import { useUser } from "../hooks/useUser";
+//Context
+import { UserContext } from "../context/UserContext";
 
-export class BookWormRouting extends React.Component {
+export function BookWormRouting() {
 
-
-    validateToken() {
-        try {
-            if (window.localStorage.getItem("bookWormUser").length > 0) {
-                //TODO validar token
-                return true
-            }
-        } catch (error) {
-            return false
-        }
-    }
-
-    render() {
-        if (this.validateToken()) {
-            return <LoggedRouting></LoggedRouting>
-        } else {
-            return <UnLoggedRouting></UnLoggedRouting>
-        }
-    }
+    return (
+        <>
+            <UserContext.Consumer>
+                {(value) => (
+                    (value.userToken != null && value.userToken.length > 0)
+                        ? <LoggedRouting></LoggedRouting>
+                        : <UnLoggedRouting></UnLoggedRouting>
+                )}
+            </UserContext.Consumer>
+        </>
+    );
 }

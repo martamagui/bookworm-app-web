@@ -5,26 +5,19 @@ import ScreenShot1 from "../../../assets/images/pic_screenshot_1.png";
 import ScreenShot2 from "../../../assets/images/pic_screenshot_2.png";
 //Services
 import { fetchLogin } from "../../../services/auth/userAuth";
+//Hooks
+import { useUser } from "../../../hooks/useUser";
+
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPasword] = useState("");
-  console.log(`Mi token ${window.localStorage.getItem("bookWormUser")}`)
+  const { login, isSuccess,
+    isError, errorMsg, isLogged } = useUser()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const user = await fetchLogin({ email: email, password: password })
-      window.localStorage.setItem(
-        "bookWormUser", JSON.stringify(user.token)
-      )
-      setEmail("")
-      setPasword("")
-
-    } catch (error) {
-      //TODO add a notification for error
-      console.log(error)
-    }
+    login(email, password)
   };
 
   //TODO add forgot your password to the server

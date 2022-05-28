@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import PicLandingArch from "../../../assets/images/pic_landing_arch.png";
 import PicGooglePlay from "../../../assets/images/pic_google_play.svg";
 import PicAppleStore from "../../../assets/images/pic_apple_store.svg";
 //Services
 import { fetchLogin } from "../../../services/auth/userAuth"
+import { UserContext } from "../../../context/UserContext";
 
 export function Landing() {
+  const user = useContext(UserContext)
+
   return (
     <div className="self-center">
       <div className="landing__container-top flex flex-row justify-between items-end px-48">

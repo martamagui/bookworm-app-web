@@ -5,6 +5,6 @@ export const fetchLogin = async (credentials) => {
     const response = await api.post("/user/login", credentials);
     return response.data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
