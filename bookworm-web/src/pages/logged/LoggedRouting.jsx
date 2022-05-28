@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 //inner
 import { Detail } from "./views/Detail";
@@ -10,14 +10,18 @@ import { NavigationBarLogged } from "../../components/NavigationBarLogged";
 
 export function LoggedRouting() {
     return (
-        <div className="unlogged_body">
+        <div className="logged_body">
             <NavigationBarLogged></NavigationBarLogged>
             <Routes>
                 <Route path="/" element={<Feed />} />
                 <Route path="/review/:id" element={<Detail />} />
                 <Route path="/profile/:id" element={<Profile />} />
                 <Route path="/*" element={<NotFound />} />
+                <Route
+                    path="/login"
+                    element={<Navigate to="/" />}
+                />
             </Routes>
-        </div>
+        </div >
     );
 }
