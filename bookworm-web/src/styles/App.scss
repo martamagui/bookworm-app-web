@@ -10,14 +10,14 @@
 // Base
 @import "./base/typography";
 
-// Components
-@import "./components/buttons";
-@import "./views/logged/rightAside";
-@import "./views/logged/leftAside";
-
-
 //Views
 @import "./views/unlogged";
 @import "./views/logged";
 @import "./views/unlogged/landing";
 @import "./views/unlogged/login";
+@import "./views/logged/feed";
+
+// Components
+@import "./components/buttons";
+@import "./components/leftAside";
+@import "./components/rightAside";

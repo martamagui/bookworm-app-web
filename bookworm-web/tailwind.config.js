@@ -55,6 +55,7 @@ module.exports = {
       "on-surface-variant": "#52443d",
       "inverse-surface": "#362f2c",
       "inverse-on-surface": "#fbeee9",
+      "surface-variant-foreground": "#52443D"
     }),
     extend: {},
   },

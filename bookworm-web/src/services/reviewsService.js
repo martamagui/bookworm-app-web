@@ -5,8 +5,18 @@ import { api } from "./axiosInstance";
 
 export const getTopBooks = async (token) => {
     try {
-        const headers = { headers: { Authorization: "Bearer " + `${token}` } }
-        const response = await api.get("/top-books", headers)
+        const response = await api.get("/top-books")
+        return response.data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const getFeed = async (token) => {
+    try {
+        console.log(token)
+        const headers = { headers: { Authorization: token } }
+        const response = await api.get("/review", headers)
         return response.data
     } catch (error) {
         console.error(error)

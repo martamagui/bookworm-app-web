@@ -10,11 +10,13 @@ export function useTopBooks() {
     const [topBooksState, setTopBooksState] = useState({ loading: false, error: false, success: false, errorMsg: "", data: [] });
 
     const fetchTopBooks = useCallback(() => {
-
         setTopBooksState({ ...topBooksState, loading: true });
+
         getTopBooks(userToken).then(data => {
+            if (data.message != null) {
+                setTopBooksState({ ...topBooksState, error: true, loading: false, errorMsg: "Sesión caducada" })
+            }
             if (data) {
-                
                 setTopBooksState({ ...topBooksState, loading: false, success: true, data: data })
             }
         }, error => {

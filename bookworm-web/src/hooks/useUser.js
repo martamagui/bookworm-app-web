@@ -16,7 +16,7 @@ export function useUser() {
         fetchLogin({ email: email, password: password, })
             .then(user => {
                 if (user) {
-                    window.localStorage.setItem("bookWormToken", JSON.stringify(user.token));
+                    window.localStorage.setItem("bookWormToken", `Bearer ${user.token}`);
                     setUserToken(JSON.stringify(user.token));
                     setUserState({ success: true, loading: false, error: false, errorMsg: "" });
                 }

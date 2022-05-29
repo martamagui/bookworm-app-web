@@ -1,6 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+//Hooks
+import { useFeed } from "../../../hooks/useFeed";
+//Feed
+import { FeedCard } from "../../../components/FeedCard/FeedCard";
 
 export function Feed() {
-  return <h2>Feed</h2>;
+  const { fetchFeed, isSuccess, isLoading, errorMsg, data } = useFeed();
+
+  useEffect(() => {
+    console.log("aloo"),
+      fetchFeed();
+  }, [fetchFeed]);
+
+  return (
+    <div className="feed_container px-10">
+      {
+        data.map((element) => <FeedCard feedResponse={element}></FeedCard>)
+      }
+    </div>
+  )
 }

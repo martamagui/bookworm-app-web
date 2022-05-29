@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 //Assets
 import PicGiveAway from "../../assets/images/pic_give_away.png"
@@ -15,7 +15,7 @@ export function RightAside() {
     }, [fetchTopBooks])
 
     const top = Array.from(data).forEach(element => console.log(element._id))
-    console.log(top)
+
     return (
         <div className="aside-right absolute right-48 w-2/12">
             <div className="py-6">
