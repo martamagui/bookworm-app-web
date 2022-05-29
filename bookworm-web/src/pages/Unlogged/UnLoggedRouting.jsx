@@ -9,7 +9,7 @@ import { SignUp } from "./views/SignUp";
 import { Contact } from "./views/Contact";
 import { Faq } from "./views/Faq";
 import { NotFound } from "../notFound/NoFount";
-import { NavigationBarLading } from "../../components/NavigationBarLanding";
+import { NavigationBarLading } from "../../components/navigationBars/NavigationBarLanding";
 
 
 export function UnLoggedRouting() {

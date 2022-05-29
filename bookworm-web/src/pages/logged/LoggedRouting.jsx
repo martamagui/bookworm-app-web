@@ -1,21 +1,21 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 //Views
 import { Detail } from "./views/Detail";
 import { Feed } from "./views/Feed";
 import { Profile } from "./views/Profile";
 import { NotFound } from "../notFound/NoFount";
-import { NavigationBarLogged } from "../../components/NavigationBarLogged";
+import { NavigationBarLogged } from "../../components/navigationBars/NavigationBarLogged";
 import { CreateReview } from "./views/CreateReview";
-import { LeftAside } from "../../components/LeftAside";
-import { RightAside } from "../../components/RightAside";
+import { LeftAside } from "../../components/asides/LeftAside";
+import { RightAside } from "../../components/asides/RightAside";
 
 export function LoggedRouting() {
     return (
         <div className="logged__body">
             <NavigationBarLogged></NavigationBarLogged>
-            <div className="logged__content flex flex-row px-48">
+            <div className="logged__content relative flex flex-row justify-center px-48">
                 <LeftAside></LeftAside>
                 <div className="w-6/12 bg-yellow-300">
                     <Routes>

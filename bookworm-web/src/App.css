@@ -38,7 +38,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.title-large {
+.title-large, .aside__title {
   font-family: "Raleway", sans-serif;
 }
 
@@ -171,6 +171,19 @@
     background-position: 50%;
     background-size: 180%;
   }
+}
+
+.aside__button {
+  background: linear-gradient(91.8deg, #626033 3.28%, #706d3c 97.55%);
+  -webkit-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.banner-left {
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .unlogged_body {

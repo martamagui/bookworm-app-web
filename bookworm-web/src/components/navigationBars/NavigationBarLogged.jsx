@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 //Assets
-import icHome from "../assets/icons/ic_home.svg"
-import icProfile from "../assets/icons/ic_profile.svg"
+import icHome from "../../assets/icons/ic_home.svg"
+import icProfile from "../../assets/icons/ic_profile.svg"
 
 //Hooks
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../../hooks/useUser";
 
 export function NavigationBarLogged() {
 
