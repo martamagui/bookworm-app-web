@@ -1,7 +1,8 @@
-  // Reset
+// Reset
 @import "./base/reset";
 @import "./base/tailwind";
 @import "./abstracs/animations";
+
 // Abstracs
 @import "./abstracs/mixinsAndPlaceHolders";
 @import "./abstracs/variables";
@@ -11,15 +12,12 @@
 
 // Components
 @import "./components/buttons";
+@import "./views/logged/rightAside";
+@import "./views/logged/leftAside";
+
 
 //Views
+@import "./views/unlogged";
+@import "./views/logged";
 @import "./views/unlogged/landing";
 @import "./views/unlogged/login";
-@import "./views/logged/leftAside";
-@import "./views/logged/rightAside";
-
-//TODO, mover. Es provisional
-.unlogged_body{
-    background-color: #331200;
-    color: #ffff;
-}

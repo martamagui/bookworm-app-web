@@ -14,7 +14,7 @@ import { NavigationBarLading } from "../../components/navigationBars/NavigationB
 
 export function UnLoggedRouting() {
     return (
-        <div className="unlogged_body">
+        <div className="unlogged__body">
             <NavigationBarLading></NavigationBarLading>
             <Routes>
                 <Route path="/" element={<Landing />} />
