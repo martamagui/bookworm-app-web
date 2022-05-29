@@ -1,3 +1,8 @@
-export const authConfig = () => {
-  return { Authorization: "Bearer " + `${import.meta.env.VITE_TEST_TOKEN}` };
+export const axiosConfig = () => {
+  try {
+    const token = window.localStorage.getItem("bookWormToken")
+    return { Authorization: "Bearer " + `${token}` };
+  } catch (error) {
+    console.error(error)
+  }
 };
