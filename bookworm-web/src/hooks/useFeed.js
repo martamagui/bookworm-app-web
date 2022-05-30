@@ -13,7 +13,6 @@ export function useFeed() {
 
         getFeed(userToken).then(data => {
             if (data) {
-                console.log(data[0])
                 setFeedState({ ...feedState, loading: false, success: true, data: data });
             }
         }, error => {

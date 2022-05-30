@@ -14,8 +14,6 @@ export function RightAside() {
         fetchTopBooks();
     }, [fetchTopBooks])
 
-    const top = Array.from(data).forEach(element => console.log(element._id))
-
     return (
         <div className="aside-right absolute right-48 w-2/12">
             <div className="py-6">

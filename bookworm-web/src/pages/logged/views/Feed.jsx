@@ -9,14 +9,13 @@ export function Feed() {
   const { fetchFeed, isSuccess, isLoading, errorMsg, data } = useFeed();
 
   useEffect(() => {
-    console.log("aloo"),
-      fetchFeed();
+    fetchFeed();
   }, [fetchFeed]);
 
   return (
     <div className="feed_container px-10">
       {
-        data.map((element) => <FeedCard feedResponse={element}></FeedCard>)
+        data.map((element) => <FeedCard key={element.id} feedResponse={element}></FeedCard>)
       }
     </div>
   )

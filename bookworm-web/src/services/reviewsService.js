@@ -25,7 +25,7 @@ export const getFeed = async (token) => {
 export const likeDislikeReview = async (token, reviewId) => {
     try {
         const headers = { headers: { Authorization: token } }
-        const response = await api.put(`/review/like/${reviewId}`, headers)
+        const response = await api.put(`/review/like/${reviewId}`, {}, { headers: { Authorization: token } })
         return response.data
     } catch (error) {
         console.log(error)
@@ -35,7 +35,7 @@ export const likeDislikeReview = async (token, reviewId) => {
 export const saveUnsave = async (token, reviewId) => {
     try {
         const headers = { headers: { Authorization: token } }
-        const response = await api.put(`/user/save-review/${reviewId}`, headers)
+        const response = await api.put(`/user/save-review/${reviewId}`, {}, { headers: { Authorization: token } })
         return response.data
     } catch (error) {
         console.log(error)

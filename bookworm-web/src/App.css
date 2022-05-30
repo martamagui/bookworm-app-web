@@ -239,24 +239,6 @@
   }
 }
 
-.card-feed__container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  -webkit-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1);
-}
-
-.card-feed__container .card-feed__user-photo {
-  width: 40px;
-}
-
-.card-feed__container .card-feed__image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .aside__button {
   background: linear-gradient(91.8deg, #626033 3.28%, #706d3c 97.55%);
   -webkit-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
@@ -360,5 +342,49 @@
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.card-feed__container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  -webkit-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-feed__container .card-feed__user-photo {
+  width: 40px;
+}
+
+.card-feed__container .card-feed__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-feed__container .card-feed__image__wrapper {
+  position: relative;
+}
+
+.card-feed__container .card-feed__image__wrapper .card-feed__container-buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translateY(15px);
+          transform: translateY(15px);
+}
+
+.card-feed__button {
+  background-color: #636032;
+  width: 36px;
+  height: 36px;
+  -webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.card-feed__button:hover {
+  background-image: linear-gradient(91.8deg, #626033 3.28%, #706d3c 97.55%);
+  -webkit-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.8);
 }
 /*# sourceMappingURL=App.css.map */

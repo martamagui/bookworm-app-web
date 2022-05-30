@@ -8,7 +8,7 @@ export function ListOfTopBooks({ books }) {
         <div className="topBooks__container">
             {
                 books.map(({ _id, reviews }) =>
-                    <TopBookCard id={_id} reviews={reviews}></TopBookCard>
+                    <TopBookCard key={_id} id={_id} reviews={reviews}></TopBookCard>
                 )
             }
         </div>
