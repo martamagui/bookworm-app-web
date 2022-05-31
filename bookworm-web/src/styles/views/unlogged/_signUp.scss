@@ -1,0 +1,10 @@
+.signUp__container{
+    min-height: 95vh;
+    h2 {
+        background: $landingTitle;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 150% 200%;
+        background-clip: text;
+      }
+}

@@ -239,6 +239,18 @@
   }
 }
 
+.signUp__container {
+  min-height: 95vh;
+}
+
+.signUp__container h2 {
+  background: linear-gradient(92.12deg, #e66d0a 1.18%, #e7e169 91.57%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 150% 200%;
+  background-clip: text;
+}
+
 .aside__button {
   background: linear-gradient(91.8deg, #626033 3.28%, #706d3c 97.55%);
   -webkit-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
