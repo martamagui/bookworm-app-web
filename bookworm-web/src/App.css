@@ -294,10 +294,14 @@
 }
 
 .top-card:hover .icon-arrow {
-  -webkit-animation-name: arrow-hover;
-          animation-name: arrow-hover;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation: arrow-hover 1.4s infinite;
+          animation: arrow-hover 1.4s infinite;
+}
+
+.top-card:hover .top-card__image {
+  opacity: 0.8;
+  -webkit-transition: ease-in-out 0.4s;
+  transition: ease-in-out 0.4s;
 }
 
 .top-card__image {
@@ -353,6 +357,9 @@
 
 .card-feed__container .card-feed__user-photo {
   width: 40px;
+  aspect-ratio: 1 / 1;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card-feed__container .card-feed__image {

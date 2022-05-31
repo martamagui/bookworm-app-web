@@ -4,8 +4,12 @@
   border-radius: 10px;
   &:hover{
     .icon-arrow{
-      animation-name: arrow-hover;
-      animation-duration: 1s;
+      animation: arrow-hover 1.4s infinite ;
+    }
+    .top-card__image{
+    opacity: 0.8;
+    transition: ease-in-out 0.4s;
+
     }
   }
 }
