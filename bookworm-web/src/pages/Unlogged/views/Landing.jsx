@@ -27,8 +27,8 @@ export function Landing() {
             <p className="headline-5 py-12">We are giving once a month a surprise box, with the most popular book of the month among other small surprises. You will join by leaving your readings reviews :)</p>
             <p className="headline-5">Soon available on:</p>
             <div className="py-12 lg:w-8/12 lg:w-full flex flex-row justify-between ">
-              <img className="py-2 w-5/12" src={PicAppleStore} alt="Apple Store Logo" />
-              <img className="py-2 w-5/12" src={PicGooglePlay} alt="Google Play Logo" />
+              <img className="py-2 w-5/12 lg:w-3/12" src={PicAppleStore} alt="Apple Store Logo" />
+              <img className="py-2 w-5/12 lg:w-3/12" src={PicGooglePlay} alt="Google Play Logo" />
             </div>
           </div>
         </div>
