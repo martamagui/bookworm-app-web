@@ -21,6 +21,6 @@ export function Contact() {
           <input className="bg-primary p-2 px-12 rounded-full" type="submit" value="Send" />
         </form>
       </div>
-      <img src={PicArch} alt="Picture of the long utopia" />
+      <img className="hidden md:inline" src={PicArch} alt="Picture of the long utopia" />
     </div>);
 }

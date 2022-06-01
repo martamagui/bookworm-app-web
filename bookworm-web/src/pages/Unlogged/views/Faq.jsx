@@ -3,9 +3,9 @@ import PicFaqArch from "../../../assets/images/pic_faq_arch.png";
 
 export function Faq() {
     return (
-        <div className="landing__container-top flex flex-row justify-between items-end px-48">
-            <div className="landing__container__col self-center">
-                <h2 className="big-web-titles font-semibold text-8xl">F.A.Q.</h2>
+        <div className="landing__container-top">
+            <div className="landing__container__col">
+                <h2 className="big-web-titles ">F.A.Q.</h2>
                 <ul className="faq__list py-12">
                     <li className="faq__item">
                         <div>

@@ -24,8 +24,8 @@ export function Login() {
   //TODO add forgot your password to the server
   return (
     <>
-      <div className="login__container flex flex-row justify-between items-center px-48">
-        <div className="login__container__col-form self-center w-5/12">
+      <div className="login__container">
+        <div className="login__container__col-form ">
           <h2 className="big-web-titles font-semibold text-8xl py-6 ">Login</h2>
 
           <form onSubmit={handleSubmit}>
@@ -64,16 +64,16 @@ export function Login() {
           <p className="py-10 text-primary-container">Not a membar yet? <Link to="/sign-up"><span className="text-primary-dark"> Sign up</span></Link></p>
         </div>
 
-        <div className="login__container__col-images flex flex-row justify-between w-5/12">
+        <div className="login__container__col-images hidden sm:flex flex-row justify-between w-5/12">
           <img
             src={ScreenShot1}
             alt="Captura de pantalla de Bookworm Android 1"
-            className="col__image-1 w-6/12 pb-20 px-2"
+            className="col__image-1 w-6/12 pb-20 px-2 hidden lg:inline"
           />
           <img
             src={ScreenShot2}
             alt="Captura de pantalla de Bookworm Android 2"
-            className="col__image-2 w-6/12 pt-20 px-2"
+            className="col__image-2 w-full hidden sm:inline lg:w-6/12 pt-20 px-2"
           />
         </div>
       </div>

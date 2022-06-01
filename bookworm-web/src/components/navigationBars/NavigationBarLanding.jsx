@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function NavigationBarLading() {
     return (
-        <div className="flex flex-row justify-between items-center py-6 px-48">
+        <div className="flex flex-row justify-between items-center py-6 px-12 md:px-32 xl:px-48">
             <h1>
                 <Link to="/" className="text-2xl font-medium">
                     <span>BookWorm</span>

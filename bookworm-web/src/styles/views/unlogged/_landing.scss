@@ -7,25 +7,31 @@
     background-size: 150% 200%;
     animation: gradient 15s ease infinite;
     background-clip: text;
+    
   }
   .landing__container__col {
-    width: 40vw;
+    @apply pt-16 lg:pt-0 self-center w-full lg:w-8/12 xl:w-8/12 2xl:w-6/12;
   }
-  img {
-    width: 24vw;
+  img{
+    @apply pt-16 m-0 w-6/12 lg:w-3/12 xl:w-3/12;
     transform: translateX(0.5px);
   }
 }
 
+.landing__container-top{
+  @apply flex flex-col justify-between lg:flex-row items-end px-12 md:px-32 xl:px-48;
+}
+
+
 .landing__container-bot {
-  min-height: 93vh;
-  .content {
-    width: 40vw;
-  }
+  min-height: 95vh;
   background-color: $surface-variant-light;
   color: #331200;
+  .landing__container-bot__col{
+    @apply px-10 lg:px-0 w-10/12 lg:w-8/12 xl:w-8/12 2xl:w-6/12
+  }
   .landing__container-bot__col-darkbrown {
     background-color: #331200;
-    height: 93vh;
+    height: 100vh;
   }
 }
