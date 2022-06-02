@@ -64,7 +64,7 @@ export function Login() {
           <p className="py-10 text-primary-container">Not a membar yet? <Link to="/sign-up"><span className="text-primary-dark"> Sign up</span></Link></p>
         </div>
 
-        <div className="login__container__col-images hidden sm:flex flex-row justify-between w-5/12">
+        <div className="login__container__col-images z-20 hidden sm:flex flex-row justify-between w-5/12">
           <img
             src={ScreenShot1}
             alt="Captura de pantalla de Bookworm Android 1"

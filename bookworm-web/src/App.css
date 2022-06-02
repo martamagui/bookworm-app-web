@@ -104,12 +104,7 @@
 }
 
 .big-web-titles {
-  @apply font-semibold text-6xl md:text-7xl lg:text-8xl;
-}
-
-.logged__body {
-  background-color: #FBEEEA;
-  min-height: 100vh;
+  @apply font-semibold text-5xl md:text-7xl lg:text-8xl;
 }
 
 .landing__container-top {
@@ -138,6 +133,11 @@
 
 .landing__container-top {
   @apply flex flex-col justify-between lg:flex-row items-end px-12 md:px-32 xl:px-48;
+}
+
+.logged__body {
+  background-color: #FBEEEA;
+  min-height: 100vh;
 }
 
 .landing__container-bot {
@@ -172,11 +172,6 @@
 
 .login__container__col-form {
   @apply self-center w-full sm:w-7/12 lg:w-5/12;
-}
-
-.login__container__col-images,
-.login__container__col-form {
-  z-index: 2;
 }
 
 .login__bg {
