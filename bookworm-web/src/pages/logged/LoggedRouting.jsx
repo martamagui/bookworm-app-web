@@ -15,9 +15,9 @@ export function LoggedRouting() {
     return (
         <div className="logged__body">
             <NavigationBarLogged></NavigationBarLogged>
-            <div className="logged__content relative flex flex-row justify-center px-48">
-                <LeftAside></LeftAside>
-                <div className="w-6/12">
+            <div className="logged__content relative flex flex-col lg:flex-row justify-center px-12 lg:px-32 xl:px-48">
+                <LeftAside ></LeftAside>
+                <div className="mt-20 md:mt-0 lg:w-6/12">
                     <Routes>
                         <Route path="/" element={<Feed />} />
                         <Route path="/review/:id" element={<Detail />} />
