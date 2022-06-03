@@ -18,8 +18,8 @@ export function NavigationBarLogged() {
 
 
     return (
-        <nav className="fixed md:relative z-20 w-full">
-            <div className="w-full nav__container">
+        <nav className="  fixed md:relative z-20 w-full">
+            <div className="w-full nav__container bg-inverse-on-surface shadow-md md:shadow-none md:bg-transparent">
                 <div className="nav__wrapper-logo">
                     <h1>
                         <Link to="/" className="text-2xl font-medium">
@@ -34,12 +34,12 @@ export function NavigationBarLogged() {
                     </button>
                 </div>
 
-                <div className={"nav__wrapper-menu" + (navbarOpen ? " flex shadow-xl rounded-3xl" : " hidden")} id="mobile-menu">
-                    <ul className=" items-center">
+                <div className={"nav__wrapper-menu" + (navbarOpen ? " flex " : " hidden")} id="mobile-menu">
+                    <ul className="items-center">
                         <li>
-                            <Link to="/" className="flex flex-row"><img src={icHome} alt="Home icon" /><span className="p-3 text-xl text-tertiary">Home</span></Link>
+                            <Link to="/" className="flex flex-row"><img src={icHome} alt="Home icon" /><span className="p-4 text-xl text-tertiary">Home</span></Link>
                         </li>
-                        <li className="px-3">
+                        <li className="px-2 pb-5 md:pb-0 lg:px-3">
                             <Link to="/my-profile" className="flex flex-row" ><img src={icProfile} alt="Profile icon" /><span className="p-4 text-xl text-tertiary">Profile</span></Link>
                         </li>
                         <li>
