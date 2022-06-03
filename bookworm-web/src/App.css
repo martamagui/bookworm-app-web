@@ -259,6 +259,22 @@
   background-clip: text;
 }
 
+.nav__container {
+  @apply md:bg-transparent w-full flex flex-col md:flex-row justify-between items-center py-3 md:py-6 md:px-32 xl:px-48;
+}
+
+.nav__container .nav__wrapper-logo {
+  @apply flex flex-row justify-between w-full md:w-6/12 px-12 md:px-0;
+}
+
+.nav__wrapper-menu {
+  @apply w-full lg:flex flex-grow justify-start md:justify-end md:block md:w-auto px-8 md:px-0;
+}
+
+.nav__wrapper-menu ul {
+  @apply flex flex-col md:flex-row mt-4 mb-4 md:m-0;
+}
+
 .aside__button {
   background: linear-gradient(91.8deg, #626033 3.28%, #706d3c 97.55%);
   -webkit-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
