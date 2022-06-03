@@ -8,7 +8,7 @@ import WeeklyFind from "../../assets/images/pic_weekly_find.png"
 
 export function LeftAside() {
     return (
-        <div className="aside-left w-2/12 absolute left-48">
+        <div className="aside-left hidden lg:block absolute w-3/12 xl:w-2/12 absolute left-32 xl:left-48">
             <div className="aside-left__pair">
                 <h4 className="aside__title text-tertiary font-bold text-xl py-5">What are you reading?</h4>
                 <Link to="/create-review" className="aside__button w-9/12 flex flex-row justify-start items-center py-2 px-5">

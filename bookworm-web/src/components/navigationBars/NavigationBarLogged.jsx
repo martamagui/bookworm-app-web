@@ -18,8 +18,8 @@ export function NavigationBarLogged() {
 
 
     return (
-        <nav className="w-full">
-            <div className="w-full nav__container ">
+        <nav className="fixed md:relative z-20 w-full">
+            <div className="w-full nav__container">
                 <div className="nav__wrapper-logo">
                     <h1>
                         <Link to="/" className="text-2xl font-medium">

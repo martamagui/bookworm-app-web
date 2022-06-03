@@ -15,7 +15,7 @@ export function RightAside() {
     }, [fetchTopBooks])
 
     return (
-        <div className="aside-right absolute right-48 w-2/12">
+        <div className="aside-right hidden lg:block lg:absolute right-32 xl:right-48 w-2/12">
             <div className="py-6">
                 <Link to="/create-review" className="banner-give-away__container flex justify-items-start p-0">
                     <img src={PicGiveAway} alt="Give Away Banner" className="banner-left" />
