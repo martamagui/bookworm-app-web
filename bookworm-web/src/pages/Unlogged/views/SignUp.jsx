@@ -1,60 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSignUp } from "../../../hooks/useSignUp";
 
 export function SignUp() {
-  const [signUpState, setSignUpState] = useState({
-    fullName: "",
-    userName: "",
-    email: "",
-    country: "",
-    city: "",
-    address: "",
-    day: "",
-    month: "",
-    year: "",
-    password1: "",
-    password2: "",
-  });
+  const { validateData,
+    validateEmail,
+    validatePassword,
+    validateUserName,
+    isSuccess,
+    isError,
+    errorMsg,
+    data,
+    setAddress,
+    setEmail,
+    setCountry,
+    setCity,
+    setDay,
+    setMonth,
+    setPassword1,
+    setPassword2,
+    setYear,
+    setFullName,
+    setUserName } = useSignUp()
 
-  const setFullName = (value) => {
-    setSignUpState({ ...signUpState, fullName: value })
-  }
 
-  const setEmail = (value) => {
-    setSignUpState({ ...signUpState, email: value })
-  }
-
-  const setCountry = (value) => {
-    setSignUpState({ ...signUpState, country: value })
-  }
-
-  const setAddress = (value) => {
-    setSignUpState({ ...signUpState, address: value })
-  }
-
-  const setDay = (value) => {
-    setSignUpState({ ...signUpState, day: value })
-  }
-
-  const setMonth = (value) => {
-    setSignUpState({ ...signUpState, month: value })
-  }
-
-  const setYear = (value) => {
-    setSignUpState({ ...signUpState, year: value })
-  }
-
-  const setPassword1 = (value) => {
-    setSignUpState({ ...signUpState, password1: value })
-  }
-
-  const setPassword2 = (value) => {
-    setSignUpState({ ...signUpState, password2: value })
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("🕵️‍♀️")
+    validateData()
   }
 
   return <>
@@ -71,10 +45,11 @@ export function SignUp() {
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
                   type="text"
-                  value={signUpState.fullName}
+                  value={data.fullName}
                   id="fullName"
                   name="fullName"
                   placeholder="Full Name"
+                  required
                   onChange={({ target }) => setFullName(target.value)}
                 />
               </div>
@@ -84,10 +59,11 @@ export function SignUp() {
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
                   type="text"
-                  value={signUpState.fullName}
+                  value={data.userName}
                   id="userName"
                   name="userName"
                   placeholder="User Name"
+                  required
                   onChange={({ target }) => setUserName(target.value)}
                 />
               </div>
@@ -97,7 +73,7 @@ export function SignUp() {
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
                   type="text"
-                  value={signUpState.fullName}
+                  value={data.email}
                   id="email"
                   name="email"
                   placeholder="@ Email"
@@ -113,10 +89,11 @@ export function SignUp() {
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
                   type="text"
-                  value={signUpState.country}
+                  value={data.country}
                   id="country"
                   name="country"
                   placeholder="Country"
+                  required
                   onChange={({ target }) => setCountry(target.value)}
                 />
               </div>
@@ -126,10 +103,11 @@ export function SignUp() {
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
                   type="text"
-                  value={signUpState.city}
+                  value={data.city}
                   id="city"
                   name="city"
                   placeholder="City"
+                  required
                   onChange={({ target }) => setCity(target.value)}
                 />
               </div>
@@ -139,10 +117,11 @@ export function SignUp() {
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
                   type="text"
-                  value={signUpState.address}
+                  value={data.address}
                   id="address"
                   name="address"
                   placeholder="Address"
+                  required
                   onChange={({ target }) => setAddress(target.value)}
                 />
               </div>
@@ -155,17 +134,18 @@ export function SignUp() {
                 <div className="flex flex-row justify-between w-full lg:w-9/12">
                   <input
                     className="rounded-xl my-3 p-2 text-gray-700 w-3/12"
-                    value={signUpState.day}
-                    type="text"
+                    value={data.day}
+                    type="number"
                     id="day"
                     name="day"
                     placeholder="Day"
+                    required
                     onChange={({ target }) => setDay(target.value)}
                   />
                   <input
                     className="rounded-xl my-3 p-2 text-gray-700 w-3/12"
-                    value={signUpState.month}
-                    type="text"
+                    value={data.month}
+                    type="number"
                     id="month"
                     name="month"
                     placeholder="Month"
@@ -173,11 +153,12 @@ export function SignUp() {
                   />
                   <input
                     className="rounded-xl my-3 p-2 text-gray-700 w-3/12"
-                    value={signUpState.month}
-                    type="text"
+                    value={data.year}
+                    type="number"
                     id="year"
                     name="year"
                     placeholder="Year"
+                    required
                     onChange={({ target }) => setYear(target.value)}
                   />
                 </div>
@@ -189,11 +170,12 @@ export function SignUp() {
                 <label htmlFor="password" className="title-large text-primary-container  font-bold">Password</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
-                  value={signUpState.password1}
+                  value={data.password1}
                   type="password"
                   id="password1"
                   name="password1"
                   placeholder="Password"
+                  required
                   onChange={({ target }) => setPassword1(target.value)}
                 />
               </div>
@@ -201,11 +183,12 @@ export function SignUp() {
                 <label htmlFor="password" className="title-large text-primary-container  font-bold">Repeat Password</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
-                  value={signUpState.password2}
+                  value={data.password2}
                   type="password"
                   id="password2"
                   name="password2"
                   placeholder="Password"
+                  required
                   onChange={({ target }) => setPassword2(target.value)}
                 />
               </div>

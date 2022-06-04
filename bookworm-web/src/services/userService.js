@@ -1,5 +1,4 @@
 import { api } from "./axiosInstance";
-import { authConfig } from "./auth/userAuth";
 
 //-------------------> POST
 export const createAccount = async (
@@ -37,10 +36,10 @@ export const createAccount = async (
 };
 
 //-------------------> GET
-export const getUserById = async (id) => {
+export const getUserById = async (id, token) => {
   try {
     let response = await api
-      .get(`user/${id}`, { headers: authConfig })
+      .get(`user/${id}`, { headers: token })
       .then(({ response }) => response);
 
   } catch (error) {
@@ -48,10 +47,10 @@ export const getUserById = async (id) => {
   }
 };
 
-export const fetchIsUserNameAvailable = async (email) => {
+export const fetchIsUserNameAvailable = async (userName) => {
   try {
     let response = await api
-      .get(`user/is-email-taken/${email}`)
+      .get(`user/is-email-taken/${userName}`)
       .then(({ response }) => response);
 
   } catch (error) {
@@ -59,10 +58,10 @@ export const fetchIsUserNameAvailable = async (email) => {
   }
 };
 
-export const fetchIsEmailTaken = async (userName) => {
+export const fetchIsEmailTaken = async (email) => {
   try {
     let response = await api
-      .get(`user/is-username-taken/${userName}`)
+      .get(`user/is-username-taken/${email}`)
       .then(({ response }) => response);
 
   } catch (error) {
