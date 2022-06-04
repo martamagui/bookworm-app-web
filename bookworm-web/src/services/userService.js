@@ -47,3 +47,25 @@ export const getUserById = async (id) => {
     console.error(error);
   }
 };
+
+export const fetchIsUserNameAvailable = async (email) => {
+  try {
+    let response = await api
+      .get(`user/is-email-taken/${email}`)
+      .then(({ response }) => response);
+
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchIsEmailTaken = async (userName) => {
+  try {
+    let response = await api
+      .get(`user/is-username-taken/${userName}`)
+      .then(({ response }) => response);
+
+  } catch (error) {
+    console.error(error);
+  }
+};

@@ -11,17 +11,17 @@ export function useUser() {
 
     const login = useCallback((email, password) => {
 
-        setUserState({ loading: true, error: false, errorMsg: "" });
+        setUserState({ ...userState, loading: true });
 
         fetchLogin({ email: email, password: password, })
             .then(user => {
                 if (user) {
                     window.localStorage.setItem("bookWormToken", `Bearer ${user.token}`);
                     setUserToken(JSON.stringify(user.token));
-                    setUserState({ success: true, loading: false, error: false, errorMsg: "" });
+                    setUserState({ ...userState, success: true, loading: false });
                 }
             }, error => {
-                setUserState({ loading: false, error: true, success: false, errorMsg: `${error}`, });
+                setUserState({ ...userState, loading: false, error: true, errorMsg: `${error}`, });
             });
     });
 
