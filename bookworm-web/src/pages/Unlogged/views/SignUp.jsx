@@ -58,15 +58,15 @@ export function SignUp() {
   }
 
   return <>
-    <div className="signUp__container flex flex-row justify-between items-center w-full px-48">
+    <div className="signUp__container flex flex-row justify-between items-center w-full px-12 md:px-32 xl:px-48">
       <div className="signUp__container__col-form self-center w-full">
         <h2 className="big-web-titles font-semibold text-8xl py-6 ">Sign Up</h2>
 
-        <form className="w-full " onSubmit={handleSubmit}>
-          <div className="signUp__cols__wrapper flex flex-row">
+        <form className="w-full" onSubmit={handleSubmit}>
+          <div className="signUp__cols__wrapper flex flex-col sm:flex-row">
 
-            <div className="signUp__col w-3/12">
-              <div className="flex flex-col py-2 w-9/12">
+            <div className="signUp__col w-full sm:w-4/12 lg:w-3/12">
+              <div className="flex flex-col py-2 w-full lg:w-9/12">
                 <label htmlFor="fullName" className="title-large text-primary-container font-bold">Full Name</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -79,7 +79,7 @@ export function SignUp() {
                 />
               </div>
 
-              <div className="flex flex-col py-2 w-9/12">
+              <div className="flex flex-col py-2 w-full lg:w-9/12">
                 <label htmlFor="userName" className="title-large text-primary-container font-bold">User Name</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -92,7 +92,7 @@ export function SignUp() {
                 />
               </div>
 
-              <div className="flex flex-col py-2 w-9/12">
+              <div className="flex flex-col py-2 w-full lg:w-9/12">
                 <label htmlFor="userName" className="title-large text-primary-container font-bold">Email</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -107,8 +107,8 @@ export function SignUp() {
 
             </div>
 
-            <div className="signUp__col  w-3/12">
-              <div className="flex flex-col py-2 w-9/12">
+            <div className="signUp__col w-full sm:w-4/12 lg:w-3/12 sm:px-2 lg:px-0">
+              <div className="flex flex-col py-2 w-full lg:w-9/12">
                 <label htmlFor="country" className="title-large text-primary-container font-bold">Country</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -121,7 +121,7 @@ export function SignUp() {
                 />
               </div>
 
-              <div className="flex flex-col py-2 w-9/12">
+              <div className="flex flex-col py-2 w-full lg:w-9/12">
                 <label htmlFor="city" className="title-large text-primary-container font-bold">City</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -134,7 +134,7 @@ export function SignUp() {
                 />
               </div>
 
-              <div className="flex flex-col py-2 w-9/12">
+              <div className="flex flex-col py-2 w-full lg:w-9/12">
                 <label htmlFor="address" className="title-large text-primary-container font-bold">Address</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -148,11 +148,11 @@ export function SignUp() {
               </div>
             </div>
 
-            <div className="signUp__col   w-3/12">
+            <div className="signUp__col w-full sm:w-4/12 lg:w-3/12">
               <div className="flex  py-2 flex-col justify-start">
                 <label htmlFor="day" className="title-large text-primary-container  font-bold">Date of Birth</label>
 
-                <div className="flex flex-row justify-between w-9/12">
+                <div className="flex flex-row justify-between w-full lg:w-9/12">
                   <input
                     className="rounded-xl my-3 p-2 text-gray-700 w-3/12"
                     value={signUpState.day}
@@ -185,7 +185,7 @@ export function SignUp() {
 
               </div>
 
-              <div className="flex flex-col py-2 w-9/12">
+              <div className="flex flex-col py-2 w-full lg:w-9/12">
                 <label htmlFor="password" className="title-large text-primary-container  font-bold">Password</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -197,7 +197,7 @@ export function SignUp() {
                   onChange={({ target }) => setPassword1(target.value)}
                 />
               </div>
-              <div className="flex flex-col py-2 pb-6 w-9/12">
+              <div className="flex flex-col py-2 pb-6 w-full lg:w-9/12">
                 <label htmlFor="password" className="title-large text-primary-container  font-bold">Repeat Password</label>
                 <input
                   className="rounded-xl my-3 p-2 text-gray-700"
@@ -212,9 +212,6 @@ export function SignUp() {
             </div>
 
           </div>
-
-
-
 
           <input
             className="bg-primary p-2 px-12 rounded-lg"
