@@ -20,7 +20,8 @@
         "styles/components/_leftAside.scss",
         "styles/components/_rightAside.scss",
         "styles/components/_cardFeed.scss",
-        "styles/components/_loader.scss"
+        "styles/components/_loader.scss",
+        "styles/components/_searchCard.scss"
     ],
     "names": [],
     "file": "App.css"
