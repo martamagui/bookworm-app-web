@@ -133,7 +133,6 @@ export function useSignUp() {
     }
 
     const setError = (msg) => {
-        console.log(msg)
         setSignUpState({ ...signUpState, error: true, loading: false, errorMsg: msg })
     }
 
@@ -183,7 +182,7 @@ export function useSignUp() {
             avatar: `https://cdn.forbes.com.mx/2019/05/22196098_1504161492952916_1933764573047722271_n-640x360.jpg`,
             banner: `https://images.unsplash.com/photo-1558210834-473f430c09ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYm9va3xlbnwwfHwwfHw%3D&w=1000&q=80`,
             subscribedToNewsLetter: true,
-        })
+        }).then((response))
     })
 
     return {
@@ -195,6 +194,7 @@ export function useSignUp() {
         isError: signUpState.error,
         errorMsg: signUpState.errorMsg,
         data: dataState,
+        isLoading: signUpState.loading,
         setAddress,
         setCity,
         setCountry,

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Loader } from "../../../components/Loader/Loader";
 import { useSignUp } from "../../../hooks/useSignUp";
 
 export function SignUp() {
@@ -9,6 +10,7 @@ export function SignUp() {
     validateUserName,
     isSuccess,
     isError,
+    isLoading,
     errorMsg,
     data,
     setAddress,
@@ -195,12 +197,16 @@ export function SignUp() {
             </div>
 
           </div>
+          <div className="flex items-center">
+            <input
+              className="bg-primary p-2 px-12 rounded-lg"
+              type="submit"
+              value="SigUp"
+            />
 
-          <input
-            className="bg-primary p-2 px-12 rounded-lg"
-            type="submit"
-            value="SigUp"
-          />
+            {isLoading ? <Loader /> : ""}
+          </div>
+
         </form>
         <p className="py-10 text-primary-container">Have an account? <Link to="/login"><span className="text-primary-dark"> Log in</span></Link></p>
       </div>

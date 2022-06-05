@@ -36,6 +36,7 @@ export function useUser() {
         isSuccess: userState.success,
         isError: userState.error,
         errorMsg: userState.errorMsg,
+        isLoading: userState.loading,
         isLogged: Boolean(userToken)
     }
 }

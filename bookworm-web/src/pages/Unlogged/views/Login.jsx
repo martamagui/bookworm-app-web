@@ -8,12 +8,15 @@ import ScreenShot2 from "../../../assets/images/pic_screenshot_2.png";
 import { fetchLogin } from "../../../services/auth/userAuth";
 //Hooks
 import { useUser } from "../../../hooks/useUser";
+//Components
+import { Loader } from "../../../components/Loader/Loader";
+
 
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPasword] = useState("");
-  const { login, isSuccess,
+  const { login, isSuccess, isLoading,
     isError, errorMsg, isLogged } = useUser()
 
   const handleSubmit = async (event) => {
@@ -54,12 +57,15 @@ export function Login() {
                 onChange={({ target }) => setPasword(target.value)}
               />
             </div>
+            <div className="flex flex-row items-center">
+              <input
+                className="bg-primary p-2 px-12 rounded-lg"
+                type="submit"
+                value="Login"
+              />
+              {isLoading ? <Loader /> : ""}
+            </div>
 
-            <input
-              className="bg-primary p-2 px-12 rounded-lg"
-              type="submit"
-              value="Login"
-            />
           </form>
           <p className="py-10 text-primary-container">Not a membar yet? <Link to="/sign-up"><span className="text-primary-dark"> Sign up</span></Link></p>
         </div>
