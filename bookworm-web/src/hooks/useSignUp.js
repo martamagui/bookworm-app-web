@@ -1,5 +1,6 @@
 import { useState, useContext, useCallback } from "react";
-import { fetchIsEmailTaken, fetchIsUserNameAvailable } from "../services/userService";
+import { useNavigate } from "react-router";
+import { fetchCreateAccount, fetchIsEmailTaken, fetchIsUserNameAvailable } from "../services/userService";
 
 export function useSignUp() {
     const [signUpState, setSignUpState] = useState({ loading: false, error: false, success: false, errorMsg: "", });
@@ -16,6 +17,7 @@ export function useSignUp() {
         password1: "",
         password2: "",
     });
+    const navigate = useNavigate();
 
     //TODO hacer el check de si el email está ya registrado
 
@@ -70,43 +72,39 @@ export function useSignUp() {
         setSignUpState({ ...signUpState, loading: true });
         //TODO ver qué pasa con el response de emailtaken
         if (!validateEmail(data.email)) {
-            return false
+            setError = ("Please introduce a valid email.")
+            return
         }
-        console.log("Email 🕵️‍♀️")
-
         if (data.userName.length < 3) {
             setError = ("User Name is too short")
-            return false
+            return
         }
-        console.log("Username🕵️‍♀️")
-
         if (data.fullName < 3) {
             setError = ("Name is too short")
-            return false
+            return
         }
-        console.log("FNAME 🕵️‍♀️")
-
         if (data.country < 3) {
             setError = ("Country is too short")
-            return false
+            return
         }
         if (data.address < 6) {
             setError = ("Address is too short")
-            return false
+            return
         }
         if (data.city < 3) {
             setError = ("City is too short")
-            return false
+            return
         }
         if (data.birthDate < 8) {
             setError = ("Introduce a valid date of birth")
-            return false
+            return
         }
         if (data.password1 != data.password2) {
             setError = ("Passwords don't match.")
-            return false
+            return
         }
-        console.log("Okuuurrrr 🕵️‍♀️")
+        console.log("Okuurrr 🕵️‍♀️")
+        createAccount()
     });
 
     const validateEmail = () => {
@@ -115,8 +113,8 @@ export function useSignUp() {
             setError("Please introduce a valid email.")
             return false
         }
-
-        return isEmailAvailable(email)
+        //return isEmailAvailable()
+        return true
     }
 
     const validateUserName = () => {
@@ -125,7 +123,7 @@ export function useSignUp() {
             setError("UserName must be longer than 3 characters, and only be can have letters, numbers and '_' or '_'")
             return flase
         }
-        return isUserNameAvailable(dataState.userName)
+        return isUserNameAvailable()
     }
 
     const validatePassword = () => {
@@ -142,32 +140,51 @@ export function useSignUp() {
     //---------- Fetchs
 
     const isUserNameAvailable = useCallback(() => {
-        fetchIsUserNameAvailable(dataState.userName).then(response => {
-            if (response.message != null) {
-                if (response === null && response.message === "unavailable") {
-                    setError("UserName is not available.")
-                    return false
+        fetchIsUserNameAvailable(dataState.userName)
+            .then(response => {
+                if (response.message != null) {
+                    if (response === null && response.message === "unavailable") {
+                        setError("UserName is not available.")
+                        return false
+                    }
+                    return true
                 }
-                return true
-            }
-            setError("Something went wrong.")
-            return false
-        });
+                setError("Something went wrong.")
+                return false
+            });
     });
 
     const isEmailAvailable = useCallback(() => {
-        fetchIsEmailTaken(dataState.email).then(response => {
-            if (response.message != null) {
-                if (response === null && response.message === "unavailable") {
-                    setError("Email is not available.")
-                    return false
+        fetchIsEmailTaken(dataState.email)
+            .then(response => {
+                if (response != null) {
+                    if (response == null && response.message == "unavailable") {
+                        setError("Email is not available.")
+                        return false
+                    }
+                    return true
                 }
-                return true
-            }
-            setError("Something went wrong.")
-            return false
-        });
+                setError("Something went wrong. Email")
+                return false
+            });
     });
+
+    const createAccount = useCallback(() => {
+        fetchCreateAccount({
+            userName: `${dataState.userName}`,
+            fullName: `${dataState.fullName}`,
+            email: `${dataState.email}`,
+            password: `${dataState.password1}`,
+            birthDate: `${dataState.day}/${dataState.month}/${dataState.year}`,
+            country: `${dataState.country}`,
+            city: `${dataState.city}`,
+            address: `${dataState.address}`,
+            description: `Hi there, I'm new at BookWorm `,
+            avatar: `https://cdn.forbes.com.mx/2019/05/22196098_1504161492952916_1933764573047722271_n-640x360.jpg`,
+            banner: `https://images.unsplash.com/photo-1558210834-473f430c09ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYm9va3xlbnwwfHwwfHw%3D&w=1000&q=80`,
+            subscribedToNewsLetter: true,
+        })
+    })
 
     return {
         validateData,
