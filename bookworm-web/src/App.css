@@ -483,4 +483,8 @@
             transform: rotate(360deg);
   }
 }
+
+.searchCard__image {
+  aspect-ratio: 1;
+}
 /*# sourceMappingURL=App.css.map */
