@@ -30,6 +30,7 @@ export function useTopBooks() {
         isSuccess: topBooksState.success,
         isError: topBooksState.error,
         errorMsg: topBooksState.errorMsg,
-        data: topBooksState.data
+        data: topBooksState.data,
+        isLoading: topBooksState.loading
     }
 }

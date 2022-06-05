@@ -6,9 +6,10 @@ import PicGiveAway from "../../assets/images/pic_give_away.png"
 import { useTopBooks } from "../../hooks/useTopBooks";
 //Componentss
 import { ListOfTopBooks } from "../listOfTopBooks/ListOfTopBooks";
+import { TopBookCardSkeleton } from "../TopBookCard/TopBookCardSkeleton";
 
 export function RightAside() {
-    const { fetchTopBooks, isSuccess, isError, errorMsg, data } = useTopBooks();
+    const { fetchTopBooks, isLoading, isSuccess, isError, errorMsg, data } = useTopBooks();
 
     useEffect(() => {
         fetchTopBooks();
@@ -22,7 +23,17 @@ export function RightAside() {
                 </Link>
             </div>
             <h2 className="text-tertiary font-bold text-xl">Most readed books</h2>
-            <ListOfTopBooks books={data}></ListOfTopBooks>
+            {
+                isLoading ?
+                    <>
+                        <TopBookCardSkeleton />
+                        <TopBookCardSkeleton />
+                        <TopBookCardSkeleton />
+                    </>
+                    :
+                    <ListOfTopBooks books={data} />
+            }
+
         </div >
     );
 }
