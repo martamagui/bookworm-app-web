@@ -2,27 +2,9 @@ import React, { useEffect } from "react";
 
 //Assets
 import IcStar from "../../assets/icons/ic_star.svg"
-import IcShopBag from "../../assets/icons/ic_shop_bag.svg"
-import IcLikeFilled from "../../assets/icons/ic_like_filled.svg"
-import IcBookMarkOutlined from "../../assets/icons/ic_bookmark_outlined.svg"
-import IcBookMarkFilled from "../../assets/icons/ic_bookmark.svg"
-import IcLikeOutlined from "../../assets/icons/ic_like_outlined.svg"
-
 
 export function FeedCardSkeleton() {
-    /*
-    <div className="card-feed__container-buttons flex flex-row justify-between  px-3 ">
-                        <button onClick={handleAmazonClick} className="card-feed__button flex justify-center items-center rounded-full ">
-                            <img className="card-feed__button__ic" src={IcShopBag} alt="Shop bag icon" />
-                        </button>
-                        <button onClick={handleLikeClick} className="card-feed__button flex justify-center items-center rounded-full mx-2">
-                            <img className="card-feed__button__ic" src={liked ? IcLikeFilled : IcLikeOutlined} alt="Like icon" />
-                        </button>
-                        <button onClick={handleSaveClick} className="card-feed__button flex justify-center items-center rounded-full">
-                            <img className="card-feed__button__ic " src={saved ? IcBookMarkFilled : IcBookMarkOutlined} alt="Bookmark icon" />
-                        </button>
-                    </div>
-    */
+
     return (
         <div className="card-feed__container shimmer mb-10">
             <div className="card-feed__block-top flex flex-row justify-between items-center p-3">
