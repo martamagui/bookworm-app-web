@@ -33,3 +33,15 @@
         box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.8); 
     }
 }
+
+.shimmer {
+  mask:linear-gradient(-60deg,#000 30%,#0005,#000 70%) right/300% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 0.9s infinite;
+
+}
+
+@keyframes shimmer {
+  
+  100% {-webkit-mask-position:left}
+}
