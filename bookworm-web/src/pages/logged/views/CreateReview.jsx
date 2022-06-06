@@ -27,7 +27,7 @@ export function CreateReview() {
     const uploadToFireBase = () => {
         console.log(imageUploadState == null ? "true" : "false")
         if (imageUploadState == null) return;
-        const imageRef = ref(storage, `images/review/${Math.floor((Math.random() * 1000)).toString() + imageUploadState.name}`);
+        const imageRef = ref(storage, `images/review/${Math.floor((Math.random() * 1000000)).toString() + imageUploadState.name}`);
         uploadBytes(imageRef, imageUploadState).then((response) => {
             getDownloadURL(response.ref).then((url) => {
                 setReviewState({ ...reviewState, image: `${url}` })
