@@ -132,7 +132,7 @@ export function useSignUp() {
         return dataState.password1.match(regexPass)
     }
 
-    const setError = (msg) => {
+    let setError = (msg) => {
         setSignUpState({ ...signUpState, error: true, loading: false, errorMsg: msg })
     }
 
