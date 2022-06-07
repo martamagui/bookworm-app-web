@@ -1,0 +1,14 @@
+.createReview__image__container {
+    width: 100%;
+    padding: 100px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+
+}
+
+.createReview__input-text {
+    /* M3/read-only/light/on-surface/opacity-0.12 */
+    border: 1px solid rgba(32, 26, 23, 0.164);
+    border-radius: 15px;
+    color: #765847;
+}
