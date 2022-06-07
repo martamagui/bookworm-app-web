@@ -9,7 +9,13 @@ import { useNewReview } from "../../../hooks/useNewReview";
 
 export function CreateReview() {
     const [imageUploadState, setImageUploadState] = useState(null);
-     const {reviewState, uploadImage} =  useNewReview();
+    const {
+        reviewState, uploadImage,
+        createPost, setBookAuthor,
+        setBookTitle, setHashTag,
+        setReviewDescripition,
+        setReviewState,
+        setScore, addHashTag } = useNewReview();
 
     const imageAsBg = (inputId, container) => {
         document.getElementById(container).style.backgroundImage = `url('${imageUploadState}')`;
@@ -42,25 +48,38 @@ export function CreateReview() {
                                     <img src={IcStar} alt="Star Icon" />
                                 </div>
                             </div>
-                            <input type="range" min="1" max="10" value="5" className="slider" id="score" />
+                            <input type="range" min="1" max="10"
+                                className="slider" id="score"
+                                value={reviewState.score}
+                                onChange={(event) => setScore(event.value)} />
                         </div>
                         <div className="createReview__row flex flex-row">
                             <div className="flex flex-col w-6/12 p-1">
                                 <label htmlFor="bookTitle"><span className="text-primary px-3">Title</span></label>
-                                <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface" id="bookTitle" type="text" value={reviewState.bookTitle} placeholder="Title" />
+                                <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
+                                    id="bookTitle" type="text" value={reviewState.bookTitle}
+                                    placeholder="Title" onChange={(event) => { setBookTitle(event.value) }} />
                             </div>
                             <div className="flex flex-col w-6/12 p-1">
                                 <label htmlFor="bookAuthor"><span className="text-primary px-3">Author</span></label>
-                                <input  className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface" id="bookAuthor" type="text" value={reviewState.bookAuthor} placeholder="Author" />
+                                <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
+                                    id="bookAuthor" type="text" value={reviewState.bookAuthor}
+                                    placeholder="Author"
+                                    onChange={(event) => { setBookAuthor(event.value) }} />
                             </div>
                         </div>
                         <div className="flex flex-col">
                             <label htmlFor="description"><span className="text-primary px-3">Review</span></label>
-                            <textarea  className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface" placeholder="Review Description" name="description" id="description" cols="30" rows="10" />
+                            <textarea className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
+                                placeholder="Review Description" name="description"
+                                id="description" cols="30" rows="10"
+                                onChange={(event) => { setReviewDescripition(event.value) }} />
                         </div>
                         <div className="flex flex-col p-1">
                             <label htmlFor="hashtags"><span className="text-primary px-3">Author</span></label>
-                            <input  className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface" id="hashtags" type="text" value={reviewState.hashtagText} placeholder="Hashtag" />
+                            <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
+                                id="hashtags" type="text" value={reviewState.hashtagText}
+                                placeholder="Hashtag" onChange={(event) => { setHashTag(event.value) }} />
                         </div>
                         <div className="createReview__hashtag__container">
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { storage } from "../services/firebase/firebaseConfig";
 
 
-export function useNewReview(){
+export function useNewReview() {
     const [reviewState, setReviewState] = useState({
         bookTitle: "",
         bookAuthor: "",
@@ -13,6 +13,34 @@ export function useNewReview(){
         hashtagText: "",
         hashtags: []
     });
+
+    // --------- SET state
+    const setBookTitle = (value) => {
+        setReviewState({ ...reviewState, bookTitle: value })
+    }
+
+    const setBookAuthor = (value) => {
+        setReviewState({ ...reviewState, bookAuthor: value })
+    }
+
+    const setScore = (value) => {
+        setReviewState({ ...reviewState, score: value })
+    }
+
+    const setReviewDescripition = (value) => {
+        setReviewState({ ...reviewState, reviewDescription: value })
+    }
+    const setHashTag = (value) => {
+        setReviewState({ ...reviewState, hashtagText: value })
+    }
+
+    const addHashTag = (value) => {
+        let tagsArray = reviewState.hashtags
+        tagsArray.push(value)
+        setReviewState({ ...reviewState, hashtags: tagsArray })
+    }
+
+    // --------
 
     const uploadToFireBase = () => {
         console.log(reviewState.imageFile == null ? "true" : "false")
@@ -29,10 +57,10 @@ export function useNewReview(){
     const uploadImage = (event) => {
         console.log(event.target.files[0].name);
         setImageUploadState(event.target.files[0]);
-        setReviewState({...reviewState, imageFile: event.target.files[0] })
+        setReviewState({ ...reviewState, imageFile: event.target.files[0] })
         uploadToFireBase()
     }
-    
+
     const createPost = (event) => {
         event.preventDefault()
     }
@@ -40,6 +68,13 @@ export function useNewReview(){
     return {
         reviewState,
         uploadImage,
-        createPost
+        createPost,
+        setBookAuthor,
+        setBookTitle,
+        setHashTag,
+        setReviewDescripition,
+        setReviewState,
+        setScore,
+        addHashTag
     }
 }
