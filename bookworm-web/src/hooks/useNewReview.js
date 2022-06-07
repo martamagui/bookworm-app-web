@@ -30,6 +30,7 @@ export function useNewReview() {
     const setReviewDescripition = (value) => {
         setReviewState({ ...reviewState, reviewDescription: value })
     }
+
     const setHashTag = (value) => {
         setReviewState({ ...reviewState, hashtagText: value })
     }
@@ -39,8 +40,7 @@ export function useNewReview() {
         tagsArray.push(value)
         setReviewState({ ...reviewState, hashtags: tagsArray })
     }
-
-    // --------
+    // --------------------
 
     const uploadToFireBase = () => {
         console.log(reviewState.imageFile == null ? "true" : "false")

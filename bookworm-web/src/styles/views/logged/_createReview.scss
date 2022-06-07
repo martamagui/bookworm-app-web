@@ -1,14 +1,44 @@
 .createReview__image__container {
     width: 100%;
-    padding: 100px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-
 }
 
 .createReview__input-text {
     /* M3/read-only/light/on-surface/opacity-0.12 */
     border: 1px solid rgba(32, 26, 23, 0.164);
-    border-radius: 15px;
     color: #765847;
+    outline: none;
+}
+.createReview__wrapper-top{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    .input__wrapper-image{
+        position: absolute;
+        bottom: -20px;
+    }
+}
+.createReview__input-submit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: #9c46008c;
+    width: 100%;
+    height:10px;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: $primary-light;
+    width: 20px;
+    height: 20px;
+border-radius: 10px;
 }
