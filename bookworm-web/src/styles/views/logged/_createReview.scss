@@ -11,28 +11,31 @@
     outline: none;
 }
 
-.createReview__wrapper-top{
+.createReview__wrapper-top {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
-    .input__wrapper-image{
+
+    .input__wrapper-image {
         position: absolute;
         bottom: -20px;
     }
 }
-.createReview__input-submit{
+
+.createReview__input-submit {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
 }
+
 input[type=range] {
     -webkit-appearance: none;
     background-color: #9c46008c;
     width: 100%;
-    height:10px;
+    height: 10px;
     border-radius: 5px;
 }
 
@@ -41,10 +44,10 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: $primary-light;
     width: 20px;
     height: 20px;
-border-radius: 10px;
+    border-radius: 10px;
 }
 
-#image__container{
+#image__container {
     background-repeat: no-repeat;
     background-size: cover;
 }

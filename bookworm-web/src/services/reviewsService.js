@@ -1,4 +1,14 @@
+import { async } from "@firebase/util";
 import { api } from "./axiosInstance";
+
+//-------------------> POST
+
+export const postReview = async (token, body) => {
+    const response = await api
+        .post("/review", body, { headers: { Authorization: token } })
+        .then(({ response }) => response)
+        .catch(error => console.log(`❗ ${error}`))
+}
 
 
 //-------------------> GET

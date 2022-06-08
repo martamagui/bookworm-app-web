@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { storage } from "../services/firebase/firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
+//Service
+import { postReview } from "../services/reviewsService";
+//Context
+import { UserContext } from "../context/UserContext";
+
 
 export function useNewReview() {
+    const { userToken } = useContext(UserContext);
     const [reviewState, setReviewState] = useState({
+        isLoading: false,
         bookTitle: "",
         bookAuthor: "",
         score: 5,
@@ -17,6 +24,7 @@ export function useNewReview() {
 
     // --------- SET state
     const setBookTitle = (value) => {
+        console.log(value)
         setReviewState({ ...reviewState, bookTitle: value })
     }
 
@@ -36,10 +44,10 @@ export function useNewReview() {
         setReviewState({ ...reviewState, hashtagText: value })
     }
 
-    const addHashTag = (value) => {
+    const addHashTag = () => {
         let tagsArray = reviewState.hashtags
-        tagsArray.push(value)
-        setReviewState({ ...reviewState, hashtags: tagsArray })
+        tagsArray.push(reviewState.hashtagText)
+        setReviewState({ ...reviewState, hashtags: tagsArray, hashtagText: "" })
     }
 
     // --------------------
@@ -59,7 +67,6 @@ export function useNewReview() {
 
     const uploadImage = (event) => {
         setReviewState({ ...reviewState, imageFile: event.target.files[0] })
-        console.log("🍕🍕🍕")
         uploadToFireBase(event.target.files[0])
     }
 
@@ -70,6 +77,16 @@ export function useNewReview() {
 
     const createPost = (event) => {
         event.preventDefault()
+        console.log(reviewState.bookTitle)
+        const body = {
+            bookTitle: reviewState.bookTitle,
+            bookAuthor: reviewState.bookAuthor,
+            score: reviewState.score,
+            image: reviewState.image,
+            reviewDescription: reviewState.reviewDescription,
+            hashtags: reviewState.hashtags
+        }
+        postReview(userToken, body)
     }
 
     return {

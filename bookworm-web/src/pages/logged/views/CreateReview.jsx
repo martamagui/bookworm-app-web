@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 //Asssets
 import IcStar from "../../../assets/icons/ic_star.svg";
+import IcPlus from "../../../assets/icons/ic_plus.svg";
 import IcGallery from "../../../assets/icons/ic_gallery.svg";
 
 //Hooks
@@ -21,12 +22,13 @@ export function CreateReview() {
         setReviewState,
         setScore, addHashTag } = useNewReview();
 
-
-
     //TODO añadir las chips de la reseña
+    const addChip = () => {
+        addHashTag(reviewState.hashtagText)
+    }
 
     return (
-        <div className="createReview">
+        <div className="createReview pb-12">
             <form className="" onSubmit={(event) => createPost(event)}>
                 <div className="createReview__container">
                     <div className="createReview__wrapper-top">
@@ -67,14 +69,16 @@ export function CreateReview() {
                                 <label htmlFor="bookTitle"><span className="text-primary px-3">Title</span></label>
                                 <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
                                     id="bookTitle" type="text" value={reviewState.bookTitle}
-                                    placeholder="Title" onChange={(event) => { setBookTitle(event.value) }} />
+                                    placeholder="Title" onChange={(event) => {
+                                        setBookTitle(event.target.value)
+                                    }} />
                             </div>
                             <div className="flex flex-col w-6/12 p-1">
                                 <label htmlFor="bookAuthor"><span className="text-primary px-3">Author</span></label>
                                 <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
                                     id="bookAuthor" type="text" value={reviewState.bookAuthor}
                                     placeholder="Author"
-                                    onChange={(event) => { setBookAuthor(event.value) }} />
+                                    onChange={(event) => { setBookAuthor(event.target.value) }} />
                             </div>
                         </div>
                         <div className="flex flex-col py-2">
@@ -82,24 +86,34 @@ export function CreateReview() {
                             <textarea className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
                                 placeholder="Review Description" name="description"
                                 id="description" cols="30" rows="10"
-                                onChange={(event) => { setReviewDescripition(event.value) }} />
+                                onChange={(event) => { setReviewDescripition(event.target.value) }} />
                         </div>
                         <div className="flex flex-col py-2">
                             <label htmlFor="hashtags"><span className="text-primary px-3">Author</span></label>
-                            <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
-                                id="hashtags" type="text" value={reviewState.hashtagText}
-                                placeholder="Hashtag" onChange={(event) => { setHashTag(event.value) }} />
+                            <div className="flex flex-row">
+                                <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
+                                    id="hashtags" type="text" value={reviewState.hashtagText}
+                                    placeholder="Hashtag" onChange={(event) => { setHashTag(event.target.value) }} />
+                                <button onClick={addChip} className="hover:opacity-75 bg-primary px-2 rounded-full mx-2"><img src={IcPlus} alt="Addiion icon" /></button>
+                            </div>
                         </div>
 
                         <div className="createReview__hashtag__container">
-
+                            {
+                                reviewState.hashtags.map((hashtag) => <p>{hashtag}</p>)
+                            }
                         </div>
 
                     </div>
                 </div>
                 <div className="createReview__input-submit">
                     <input className="bg-primary mt-5 text-white p-2 px-5 rounded-full " type="submit" value="Publish" />
-                    <div className="bg-primary rounded-xl opacity-60 py-3 self-center px-0 m-4 inline-block"> <Loader></Loader></div>
+                    {
+                        reviewState.isLoading ?
+                            <div className="absolute ml-48 bg-primary rounded-xl opacity-60 py-3 self-center px-0 m-4 inline-block"> <Loader></Loader></div>
+                            :
+                            ""
+                    }
                 </div>
             </form>
 
