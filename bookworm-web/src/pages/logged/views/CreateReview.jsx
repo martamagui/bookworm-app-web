@@ -21,11 +21,7 @@ export function CreateReview() {
         setReviewState,
         setScore, addHashTag } = useNewReview();
 
-    const imageAsBg = (inputId, container) => {
-        document.getElementById(container).style.backgroundImage = `url('${imageUploadState}')`;
-        document.getElementById(container).style.border = "1px solid rgba(175, 175, 175, 0.862)"
-        document.getElementById(inputId).style.opacity = "0";
-    }
+
 
     //TODO añadir las chips de la reseña
 
@@ -34,16 +30,17 @@ export function CreateReview() {
             <form className="" onSubmit={(event) => createPost(event)}>
                 <div className="createReview__container">
                     <div className="createReview__wrapper-top">
-                        <div className="createReview__image__container bg-surface-variant rounded-t-2xl ">
-
+                        <div id="image__container" className="createReview__image__container bg-surface-variant rounded-t-2xl border-outline">
                         </div>
                         <div className="input__wrapper-image">
                             <div className="bg-primary p-4 py-2 rounded-3xl w-32 relative" id="image-input__container">
                                 <div className="flex flex-row justify-center items-center z-10">
                                     <span className="text-white">Gallery</span>
-                                    <img src={IcGallery} alt="Gallery Icon" />
+                                    <img className="ml-1" src={IcGallery} alt="Gallery Icon" />
                                 </div>
-                                <input onChange={(event) => { uploadImage(event) }}
+                                <input onChange={(event) => {
+                                    uploadImage(event)
+                                }}
                                     type="file" name="image" id="image-input"
                                     className="w-full h-full absolute top-0 opacity-0 z-20"
                                     accept="image/png, image/jpeg, image/jpg" />
@@ -56,7 +53,7 @@ export function CreateReview() {
                             <div className="flex flex-row justify-between">
                                 <label htmlFor="score" className="text-primary">Score</label>
                                 <div className="createReview__score flex flex-row">
-                                    <span className="text-primary px-1">{reviewState.score + ""}</span>
+                                    <span className="text-primary px-1">{(reviewState.score).toString()}</span>
                                     <img src={IcStar} alt="Star Icon" />
                                 </div>
                             </div>

@@ -10,6 +10,7 @@
     color: #765847;
     outline: none;
 }
+
 .createReview__wrapper-top{
     position: relative;
     display: flex;
@@ -41,4 +42,9 @@ input[type="range"]::-webkit-slider-thumb {
     width: 20px;
     height: 20px;
 border-radius: 10px;
+}
+
+#image__container{
+    background-repeat: no-repeat;
+    background-size: cover;
 }

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { storage } from "../services/firebase/firebaseConfig";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 
 export function useNewReview() {
     const [reviewState, setReviewState] = useState({
         bookTitle: "",
         bookAuthor: "",
-        score: 5.0,
+        score: 5,
         image: "",
         imageFile: null,
         reviewDescription: "",
@@ -40,25 +41,31 @@ export function useNewReview() {
         tagsArray.push(value)
         setReviewState({ ...reviewState, hashtags: tagsArray })
     }
+
     // --------------------
 
-    const uploadToFireBase = () => {
-        console.log(reviewState.imageFile == null ? "true" : "false")
-        if (reviewState.imageFile == null) return;
-        const imageRef = ref(storage, `images/review/${Math.floor((Math.random() * 1000000)).toString() + reviewState.imageFile.name}`);
-        uploadBytes(imageRef, reviewState.imageFile).then((response) => {
+    const uploadToFireBase = (file) => {
+        console.log(file == null ? "true" : "false")
+        if (file == null) return;
+        const imageRef = ref(storage, `images/review/${Math.floor((Math.random() * 1000000)).toString() + file.name}`);
+        uploadBytes(imageRef, file).then((response) => {
             getDownloadURL(response.ref).then((url) => {
                 setReviewState({ ...reviewState, image: `${url}` })
                 console.log("Your link " + url)
+                imageAsBg(url)
             })
         })
     }
 
     const uploadImage = (event) => {
-        console.log(event.target.files[0].name);
-        setImageUploadState(event.target.files[0]);
         setReviewState({ ...reviewState, imageFile: event.target.files[0] })
-        uploadToFireBase()
+        console.log("🍕🍕🍕")
+        uploadToFireBase(event.target.files[0])
+    }
+
+    const imageAsBg = (url) => {
+        document.getElementById("image__container").style.backgroundImage = `url('${url}')`;
+        document.getElementById("image__container").style.border = "1px solid rgba(175, 175, 175, 0.862)"
     }
 
     const createPost = (event) => {

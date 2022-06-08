@@ -204,6 +204,11 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 10px;
 }
 
+#image__container {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .landing__container-bot {
   min-height: 95vh;
   background-color: #F4DED4;
