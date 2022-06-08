@@ -98,9 +98,9 @@ export function CreateReview() {
                             </div>
                         </div>
 
-                        <div className="createReview__hashtag__container">
+                        <div className="createReview__hashtag__container my-1">
                             {
-                                reviewState.hashtags.map((hashtag) => <p>{hashtag}</p>)
+                                reviewState.hashtags.map((hashtag) => <span className="text-white text-sm p-1 px-3 mx-1 bg-primary rounded-full opacity-90">#{hashtag}</span>)
                             }
                         </div>
 
