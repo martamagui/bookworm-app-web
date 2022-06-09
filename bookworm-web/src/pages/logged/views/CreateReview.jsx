@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { Navigate } from "react-router";
 
 //Asssets
 import IcStar from "../../../assets/icons/ic_star.svg";
@@ -20,7 +21,6 @@ export function CreateReview() {
         createPost, setBookAuthor,
         setBookTitle, setHashTag,
         setReviewDescripition,
-        setReviewState,
         setScore, addHashTag } = useNewReview();
 
     //TODO añadir las chips de la reseña
@@ -28,9 +28,12 @@ export function CreateReview() {
         addHashTag(reviewState.hashtagText)
     }
 
-
     return (
         <div className="createReview pb-12">
+            {
+                reviewState.isSuccess ?
+                    <Navigate to="/" replace></Navigate> : ""
+            }
             <form className="" onSubmit={(event) => createPost(event)}>
                 <div className="createReview__container">
                     <div className="createReview__wrapper-top">
@@ -53,7 +56,7 @@ export function CreateReview() {
                     </div>
 
                     <div className="createReview__wrapper-bot bg-surface shadow-md rounded-b-2xl p-8">
-                        <div class="slidecontainer py-2">
+                        <div className="slidecontainer py-2">
                             <div className="flex flex-row justify-between">
                                 <label htmlFor="score" className="text-primary">Score</label>
                                 <div className="createReview__score flex flex-row">
@@ -109,7 +112,7 @@ export function CreateReview() {
                     </div>
                 </div>
                 <div className="createReview__input-submit">
-                    <input className="bg-primary mt-5 text-white p-2 px-5 rounded-full " type="submit" value="Publish" />
+                    <input id="submit" className="bg-primary mt-5 text-white p-2 px-5 rounded-full " type="submit" value="Publish" />
                     {
                         reviewState.isLoading ?
                             <div className="absolute ml-48 bg-primary rounded-xl opacity-60 py-3 self-center px-0 m-4 inline-block"> <Loader></Loader></div>

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useCallback } from "react";
 import { useNavigate } from "react-router";
 import { storage } from "../services/firebase/firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -51,6 +51,18 @@ export function useNewReview() {
         setReviewState({ ...reviewState, hashtags: tagsArray, hashtagText: "" });
     };
 
+    const setLoading = (value) => {
+        setReviewState({ ...reviewState, isLoading: value })
+    }
+
+    const setSuccess = (value) => {
+        setReviewState({ ...reviewState, isLoading: false, isSuccess: value })
+    }
+
+    const setError = (value) => {
+        setReviewState({ ...reviewState, isLoading: false, isError: value })
+    }
+
     // --------------------
 
     const uploadToFireBase = (file) => {
@@ -82,9 +94,9 @@ export function useNewReview() {
     const createPost = (event) => {
         event.preventDefault();
         if (document.activeElement != document.getElementById('submit')) {
-            return
+            return false
         }
-        setReviewState({ ...reviewState, isLoading: true })
+        setLoading(true)
         if (
             reviewState.bookTitle.length > 0 &&
             reviewState.bookAuthor.length > 0 &&
@@ -100,11 +112,11 @@ export function useNewReview() {
                 hashtags: reviewState.hashtags,
             };
             postReview(userToken, body);
-            setReviewState({ ...reviewState, isSuccess: true })
+            setSuccess(true)
         } else {
-            setReviewState({ ...reviewState, isError: true })
+            setError(true)
         }
-    };
+    }
 
     return {
         reviewState,
@@ -114,8 +126,10 @@ export function useNewReview() {
         setBookTitle,
         setHashTag,
         setReviewDescripition,
-        setReviewState,
         setScore,
         addHashTag,
+        isLoading: reviewState.isLoading,
+        isSuccess: reviewState.isSuccess,
+        isError: reviewState.isError
     };
 }
