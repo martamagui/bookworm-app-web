@@ -29,7 +29,6 @@ export function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("🕵️‍♀️")
     validateData()
   }
 

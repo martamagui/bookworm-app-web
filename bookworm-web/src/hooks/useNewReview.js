@@ -127,9 +127,6 @@ export function useNewReview() {
         setHashTag,
         setReviewDescripition,
         setScore,
-        addHashTag,
-        isLoading: reviewState.isLoading,
-        isSuccess: reviewState.isSuccess,
-        isError: reviewState.isError
+        addHashTag
     };
 }
