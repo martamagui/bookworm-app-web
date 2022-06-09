@@ -16,7 +16,6 @@ export function NavigationBarLogged() {
 
     const [navbarOpen, setNavbarOpen] = React.useState(false);
 
-
     return (
         <nav className="fixed md:relative z-20 w-full">
             <div className="w-full nav__container bg-inverse-on-surface shadow-md md:shadow-none md:bg-transparent">

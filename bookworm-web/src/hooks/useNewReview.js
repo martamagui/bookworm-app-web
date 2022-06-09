@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router";
 import { storage } from "../services/firebase/firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -11,6 +12,8 @@ export function useNewReview() {
     const { userToken } = useContext(UserContext);
     const [reviewState, setReviewState] = useState({
         isLoading: false,
+        isSuccess: false,
+        isError: false,
         bookTitle: "",
         bookAuthor: "",
         score: 5,
@@ -78,7 +81,10 @@ export function useNewReview() {
 
     const createPost = (event) => {
         event.preventDefault();
-        console.log(reviewState.bookTitle);
+        if (document.activeElement != document.getElementById('submit')) {
+            return
+        }
+        setReviewState({ ...reviewState, isLoading: true })
         if (
             reviewState.bookTitle.length > 0 &&
             reviewState.bookAuthor.length > 0 &&
@@ -94,8 +100,10 @@ export function useNewReview() {
                 hashtags: reviewState.hashtags,
             };
             postReview(userToken, body);
+            setReviewState({ ...reviewState, isSuccess: true })
+        } else {
+            setReviewState({ ...reviewState, isError: true })
         }
-
     };
 
     return {

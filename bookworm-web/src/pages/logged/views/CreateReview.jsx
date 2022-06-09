@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 //Asssets
 import IcStar from "../../../assets/icons/ic_star.svg";
@@ -26,6 +27,7 @@ export function CreateReview() {
     const addChip = () => {
         addHashTag(reviewState.hashtagText)
     }
+
 
     return (
         <div className="createReview pb-12">
@@ -94,7 +96,7 @@ export function CreateReview() {
                                 <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
                                     id="hashtags" type="text" value={reviewState.hashtagText}
                                     placeholder="Hashtag" onChange={(event) => { setHashTag(event.target.value) }} />
-                                <button onClick={addChip} className="hover:opacity-75 bg-primary px-2 rounded-full mx-2"><img src={IcPlus} alt="Addiion icon" /></button>
+                                <button type="button" onClick={addChip} className="hover:opacity-75 bg-primary px-2 rounded-full mx-2"><img src={IcPlus} alt="Addiion icon" /></button>
                             </div>
                         </div>
 
