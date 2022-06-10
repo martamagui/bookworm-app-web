@@ -1,7 +1,11 @@
 import React from "react";
+import { useParams } from "react-router";
+import { useSearch } from "../../../hooks/useSearch";
 
 export function Search() {
 
+    const { type, search } = useParams();
+    const { searchState, getByAuthor, getByHashTag, getByTitle } = useSearch();
 
     return (
         <div className="search__container">

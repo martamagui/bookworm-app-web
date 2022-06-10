@@ -32,6 +32,29 @@ export const getFeed = async (token) => {
     }
 }
 
+export const getByTitle = async (token, search) => {
+    const response = await api
+        .post(`/review/title/${search}`, body, { headers: { Authorization: token } })
+        .then(({ response }) => response)
+        .catch(error => console.log(`❗ ${error}`))
+}
+
+export const getByAuthor = async (token, search) => {
+    const response = await api
+        .post(`/find/author/${search}`, body, { headers: { Authorization: token } })
+        .then(({ response }) => response)
+        .catch(error => console.log(`❗ ${error}`))
+}
+
+export const getByHashTag = async (token, search) => {
+    const response = await api
+        .post(`/find/hastag/${search}`, body, { headers: { Authorization: token } })
+        .then(({ response }) => response)
+        .catch(error => console.log(`❗ ${error}`))
+}
+
+//-------------------> PUT
+
 export const likeDislikeReview = async (token, reviewId) => {
     try {
         const headers = { headers: { Authorization: token } }

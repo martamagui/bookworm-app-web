@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { getByAuthor, getByHashTag, getByTitle } from "../services/reviewsService";
 
 
 export function useSearch() {
+    const { userToken, setUserToken } = useContext(UserContext);
     const [searchState, setSearchState] = useState({
         isLoading: false,
         isError: false,
@@ -23,16 +25,16 @@ export function useSearch() {
 
     //------- FETCHS
 
-    const getByTitle = (value) => {
-
+    const byTitle = (value) => {
+        getByTitle(userToken, value)
     }
 
-    const getByAuthor = (value) => {
-
+    const byAuthor = (value) => {
+        getByAuthor(userToken, value)
     }
 
-    const getByHashTag = (value) => {
-
+    const byHashTag = (value) => {
+        getByHashTag(userToken, value)
     }
 
     return {

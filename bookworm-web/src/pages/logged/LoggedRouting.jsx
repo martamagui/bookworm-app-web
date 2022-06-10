@@ -10,6 +10,7 @@ import { NavigationBarLogged } from "../../components/navigationBars/NavigationB
 import { CreateReview } from "./views/CreateReview";
 import { LeftAside } from "../../components/asides/LeftAside";
 import { RightAside } from "../../components/asides/RightAside";
+import { Search } from "./views/Search";
 
 export function LoggedRouting() {
     return (
@@ -23,6 +24,7 @@ export function LoggedRouting() {
                         <Route path="/review/:id" element={<Detail />} />
                         <Route path="/my-profile" element={<Profile />} ></Route>
                         <Route path="/profile/:id" element={<Profile />} />
+                        <Route path="/search/:type/:search" element={<Search />} />
                         <Route path="/create-review" element={<CreateReview />} />
                         <Route path="/saved-reviews" />
                         <Route path="/*" element={<NotFound />} />
