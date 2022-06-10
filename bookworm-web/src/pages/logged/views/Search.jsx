@@ -21,16 +21,16 @@ export function Search() {
                 <h2 className="text-tertiary font-semibold text-2xl">{search}</h2>
             </div>
             <div className="p-2 sm:p-0 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2">
-
-                {!searchState.isSuccess && searchState.isLoading ?
-                    <>
-                        <SearchCardSkeleton /> <SearchCardSkeleton /> <SearchCardSkeleton /> <SearchCardSkeleton />
-                    </> : ""
-                }
                 {
-                    searchState.isSuccess ?
+                    searchState.isSuccess && !searchState.isLoading ?
                         data.map((element) => <SearchCard image={element.image} title={element.bookTitle} />)
-                        : ""
+                        :
+                        <>
+                            <SearchCardSkeleton />
+                            <SearchCardSkeleton />
+                            <SearchCardSkeleton />
+                            <SearchCardSkeleton />
+                        </>
                 }
             </div>
         </div>)
