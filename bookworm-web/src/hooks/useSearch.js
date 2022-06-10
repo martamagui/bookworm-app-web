@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { getByAuthor, getByHashTag, getByTitle } from "../services/reviewsService";
 
+//Inner
+import { UserContext } from "../context/UserContext";
 
 export function useSearch() {
     const { userToken, setUserToken } = useContext(UserContext);
@@ -39,8 +41,8 @@ export function useSearch() {
 
     return {
         searchState,
-        getByAuthor,
-        getByTitle,
-        getByHashTag
+        byAuthor,
+        byTitle,
+        byHashTag
     }
 }
