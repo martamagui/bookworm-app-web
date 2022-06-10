@@ -6,7 +6,7 @@ export function TopBookCard({ id, reviews }) {
     const link2 = `${reviews.length > 1 ? reviews[1].image : reviews[0].image}`
     const link3 = `${reviews.length > 2 ? reviews[2].image : reviews[0].image}`
     return (
-        <Link to={'/search/title/' + id}>
+        <Link to={'/search/title/' + id} replace>
             <div className="top-card p-3 my-4">
                 <div className="flex flex-row justify-between">
                     <span className="top-card__title text-tertiary font-semibold text-base">{id}</span>

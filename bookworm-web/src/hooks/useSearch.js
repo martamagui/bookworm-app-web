@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useCallback } from "react";
 import { getByAuthor, getByHashTag, getByTitle } from "../services/reviewsService";
 
 //Inner
@@ -10,8 +10,9 @@ export function useSearch() {
         isLoading: false,
         isError: false,
         isSuccess: false,
-        data: null
+        data: []
     })
+
 
     const setLoading = (value) => {
         setSearchState({ ...searchState, isLoading: value })
@@ -27,22 +28,34 @@ export function useSearch() {
 
     //------- FETCHS
 
+    const fetchSearch = (type, search) => {
+        if (type == "title") {
+            byTitle(search)
+        } else if (type == "author") {
+            byAuthor(search)
+        } else if (type == "hashtag") {
+            byHashTag(search)
+        }
+    }
+
     const byTitle = (value) => {
-        getByTitle(userToken, value)
+        setLoading(true)
+        getByTitle(userToken, value).then(data => setData(data))
     }
 
     const byAuthor = (value) => {
-        getByAuthor(userToken, value)
+        setLoading(true)
+        getByAuthor(userToken, value).then(data => setData(data))
     }
 
     const byHashTag = (value) => {
-        getByHashTag(userToken, value)
+        setLoading(true)
+        getByHashTag(userToken, value).then(data => setData(data))
     }
 
     return {
         searchState,
-        byAuthor,
-        byTitle,
-        byHashTag
+        fetchSearch,
+        data: searchState.data
     }
 }

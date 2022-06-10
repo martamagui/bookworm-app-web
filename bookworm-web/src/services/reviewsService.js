@@ -34,23 +34,23 @@ export const getFeed = async (token) => {
 
 export const getByTitle = async (token, search) => {
     const response = await api
-        .post(`/review/title/${search}`, body, { headers: { Authorization: token } })
-        .then(({ response }) => response)
+        .get(`/review/title/${search}`, { headers: { Authorization: token } })
         .catch(error => console.log(`❗ ${error}`))
+    return response.data
 }
 
 export const getByAuthor = async (token, search) => {
     const response = await api
-        .post(`/find/author/${search}`, body, { headers: { Authorization: token } })
-        .then(({ response }) => response)
+        .get(`/find/author/${search}`, { headers: { Authorization: token } })
         .catch(error => console.log(`❗ ${error}`))
+    return response.data
 }
 
 export const getByHashTag = async (token, search) => {
     const response = await api
-        .post(`/find/hastag/${search}`, body, { headers: { Authorization: token } })
-        .then(({ response }) => response)
+        .get(`/find/hastag/${search}`, { headers: { Authorization: token } })
         .catch(error => console.log(`❗ ${error}`))
+    return response.data
 }
 
 //-------------------> PUT
