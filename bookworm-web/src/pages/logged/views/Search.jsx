@@ -15,25 +15,25 @@ export function Search() {
     useEffect(() => {
         fetchSearch(type, search)
     }, [search])
+
     return (
-        <div className="search__container  px-10">
-            <div className="search__info">
+        <div className="search__container px-10">
+            <div className="search__info py-4">
                 <h2 className="text-tertiary font-semibold text-2xl">{search}</h2>
             </div>
             <div className="p-2 sm:p-0 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2">
                 {
                     searchState.isSuccess && !searchState.isLoading ?
-                        data.map((element) => <SearchCard image={element.image} title={element.bookTitle} />)
+                        data.map((element) => <SearchCard id={element._id} image={element.image} title={element.bookTitle} />)
                         :
                         <>
-                            <SearchCardSkeleton />
                             <SearchCardSkeleton />
                             <SearchCardSkeleton />
                             <SearchCardSkeleton />
                         </>
                 }
             </div>
-        </div>)
-
+        </div>
+    )
 
 }

@@ -8,7 +8,11 @@ import { UserContext } from "../context/UserContext";
 
 export function useCards({ feedResponse }) {
     const { userToken, setUserToken } = useContext(UserContext);
-    const [cardState, setCardState] = useState({ liked: feedResponse.liked, saved: feedResponse.saved, loading: false, error: false, success: false, errorMsg: "", data: [] });
+    const [cardState, setCardState] = useState({
+        liked: feedResponse.liked, saved: feedResponse.saved,
+        loading: false, error: false, success: false, errorMsg: "",
+        data: []
+    });
 
     const likeAction = useCallback((reviewId) => {
         setCardState({ ...cardState, loading: true });
@@ -19,7 +23,7 @@ export function useCards({ feedResponse }) {
             }
         }, error => {
             console.log(error)
-            setCardState({ ...cardtate, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
+            setCardState({ ...cardState, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
         })
     })
 
@@ -32,7 +36,7 @@ export function useCards({ feedResponse }) {
             }
         }, error => {
             console.log(error)
-            setCardState({ ...carState, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
+            setCardState({ ...cardState, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
         })
     })
 

@@ -5,20 +5,20 @@ import { getByAuthor, getByHashTag, getByTitle } from "../services/reviewsServic
 import { UserContext } from "../context/UserContext";
 
 export function useSearch() {
-    const { userToken, setUserToken } = useContext(UserContext);
+    const { userToken } = useContext(UserContext);
     const [searchState, setSearchState] = useState({
         isLoading: false,
         isError: false,
         isSuccess: false,
         data: []
-    })
+    });
 
 
     const setLoading = (value) => {
         setSearchState({ ...searchState, isLoading: value })
     }
 
-    const setError = () => {
+    const setError = (value) => {
         setSearchState({ ...searchState, isLoading: false, isError: value })
     }
 
