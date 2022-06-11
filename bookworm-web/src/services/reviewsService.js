@@ -57,7 +57,6 @@ export const getDetail = async (token, id) => {
     const response = await api
         .get(`/review/${id}`, { headers: { Authorization: token } })
         .catch(error => console.log(`❗ ${error}`))
-    console.log(`🍰 ${response}`)
     return response.data
 }
 

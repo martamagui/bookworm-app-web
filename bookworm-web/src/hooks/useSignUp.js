@@ -31,7 +31,6 @@ export function useSignUp() {
     }
 
     const setEmail = (value) => {
-        console.log(`💌 ${value}`)
         setDataState({ ...dataState, email: value })
     }
 

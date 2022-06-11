@@ -75,7 +75,6 @@ export function useNewReview() {
         uploadBytes(imageRef, file).then((response) => {
             getDownloadURL(response.ref).then((url) => {
                 setReviewState({ ...reviewState, image: `${url}` });
-                console.log("Your link " + url);
                 imageAsBg(url);
             });
         });

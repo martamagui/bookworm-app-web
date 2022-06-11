@@ -20,7 +20,6 @@ export function Detail() {
   const { detailState, getDetailInfo, saveAction, likeAction, isLoading, isSuccess, isError } = useDetail();
 
   useEffect(() => {
-    console.log(id)
     getDetailInfo(id)
   }, [id])
 
@@ -48,6 +47,10 @@ export function Detail() {
         isLoading && !isSuccess ?
           <FeedCardSkeleton />
           :
+          ""
+      }
+      {
+        isSuccess ?
           <div className="card-feed__container mb-10">
             <div className="card-feed__block-top flex flex-row justify-between items-center p-3">
               <div className="card-feed__user-info flex flex-row items-center px-2">
@@ -79,6 +82,7 @@ export function Detail() {
               <p className="text-sm text-surface-variant-foreground">{detailState.data.reviewDescription}</p>
             </div>
           </div>
+          : ""
       }
     </div>
   );

@@ -22,8 +22,7 @@ export function useDetail() {
     }
 
     const setData = (data) => {
-        console.log(data)
-        setDetailState({ ...detailState, data: data })
+        setDetailState({ ...detailState, data: data, isSuccess: true })
     }
 
     //-------- FETCH
@@ -34,7 +33,6 @@ export function useDetail() {
     })
 
     const likeAction = useCallback((reviewId) => {
-
         likeDislikeReview(userToken, reviewId).then(data => {
             if (data) {
                 const isLiked = !detailData.liked

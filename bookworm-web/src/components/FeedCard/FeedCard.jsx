@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 //Assets
 import IcStar from "../../assets/icons/ic_star.svg"
