@@ -94,7 +94,7 @@ export function CreateReview() {
                                 onChange={(event) => { setReviewDescripition(event.target.value) }} />
                         </div>
                         <div className="flex flex-col py-2">
-                            <label htmlFor="hashtags"><span className="text-primary px-3">Author</span></label>
+                            <label htmlFor="hashtags"><span className="text-primary px-3">HashTags</span></label>
                             <div className="flex flex-row">
                                 <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
                                     id="hashtags" type="text" value={reviewState.hashtagText}
