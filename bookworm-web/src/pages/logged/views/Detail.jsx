@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 // Components
 import { FeedCard } from "../../../components/FeedCard/FeedCard";
@@ -57,10 +58,12 @@ export function Detail() {
           isSuccess ?
             <div className="card-feed__container mb-10">
               <div className="card-feed__block-top flex flex-row justify-between items-center p-3">
-                <div className="card-feed__user-info flex flex-row items-center px-2">
-                  <img className="card-feed__user-photo rounded-full" src={detailState.data.userId.avatar} alt="User avatar" />
-                  <span className="font-medium text-on-primary-container px-4 text-base">@{detailState.data.userId.userName}</span>
-                </div>
+                <Link to={"/profile/" + detailState.data._id} replace>
+                  <div className="card-feed__user-info flex flex-row items-center px-2 hover:opacity-80">
+                    <img className="card-feed__user-photo rounded-full" src={detailState.data.userId.avatar} alt="User avatar" />
+                    <span className="font-medium text-on-primary-container px-4 text-base">@{detailState.data.userId.userName}</span>
+                  </div>
+                </Link>
                 <div className="card-feed__score flex flex-row items-center px-2">
                   <span className="text-primary pt-1 px-2">{detailState.data.score}</span>
                   <img className="score__star" src={IcStar} alt="Star icon" />

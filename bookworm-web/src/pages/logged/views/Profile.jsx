@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from "react";
+import { useParams } from "react-router";
 
 //Hooks
 import { useProfile } from "../../../hooks/useProfile";
@@ -10,10 +11,15 @@ import { ProfileTopBlockSkeleton } from "../../../components/ProfileTopBlock/Pro
 import { GoBackBtn } from "../../../components/GoBackBtn/GoBackBtn";
 
 export function Profile() {
+  const { id } = useParams();
   const { isSuccess, data, fetchProfileInfo } = useProfile();
 
   useEffect(() => {
-    fetchProfileInfo("0")
+    if (id == null) {
+      fetchProfileInfo("0")
+    } else {
+      fetchProfileInfo(id)
+    }
   }, [])
 
   return (

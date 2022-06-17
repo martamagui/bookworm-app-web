@@ -22,7 +22,7 @@ export function LoggedRouting() {
                     <Routes>
                         <Route path="/" element={<Feed />} />
                         <Route path="/review/:id" element={<Detail />} />
-                        <Route path="/my-profile" element={<Profile />} ></Route>
+                        <Route path="/my-profile" element={<Profile />} />
                         <Route path="/profile/:id" element={<Profile />} />
                         <Route path="/search/:type/:search" element={<Search />} />
                         <Route path="/create-review" element={<CreateReview />} />
