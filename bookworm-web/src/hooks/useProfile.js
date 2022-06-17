@@ -28,7 +28,7 @@ export function useProfile() {
 
     const fetchProfileInfo = useCallback((id) => {
         try {
-            //setLoading(true)
+            setLoading(true)
             if (id != "0") {
                 getUserById(id, userToken).then(data => setData(data))
             } else {
@@ -37,7 +37,6 @@ export function useProfile() {
         } catch (error) {
             console.log("ERROR")
         }
-
     })
 
     return {
