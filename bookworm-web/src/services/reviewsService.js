@@ -32,6 +32,13 @@ export const getFeed = async (token) => {
     }
 }
 
+export const getSavedReviews = async (token) => {
+    const response = await api
+        .get(`/profile/saved/posts`, { headers: { Authorization: token } })
+        .catch(error => console.log(`❗ ${error}`))
+    return response.data
+}
+
 export const getByTitle = async (token, search) => {
     const response = await api
         .get(`/review/title/${search}`, { headers: { Authorization: token } })

@@ -6,7 +6,6 @@ import IcAuthor from '../../../assets/icons/ic_author.svg'
 import IcHashTag from '../../../assets/icons/ic_hashtag.svg'
 import IcTitle from '../../../assets/icons/ic_title.svg'
 
-
 //Hooks
 import { useSearch } from "../../../hooks/useSearch";
 //Components
