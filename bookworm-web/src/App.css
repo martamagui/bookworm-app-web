@@ -601,4 +601,11 @@ input[type="range"]::-webkit-slider-thumb {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.back__button__icon {
+  width: 10px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
 /*# sourceMappingURL=App.css.map */

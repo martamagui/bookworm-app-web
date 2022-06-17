@@ -13,12 +13,12 @@ export function ProfileTopBlock({ data }) {
                 {
                     data.isMe ?
                         <Link to="/saved-reviews">
-                            <div className="profile__button p-2 bg-white rounded-full shadow-md inline-block">
+                            <div className="profile__button hover:opacity-75 p-2 bg-white rounded-full shadow-md inline-block">
                                 <img src={ICBookmarkDark} alt="Plus Icon" />
                             </div>
                         </Link>
                         :
-                        <button className="profile__button p-3 bg-white rounded-full shadow-md inline-block">
+                        <button className="profile__button hover:opacity-75 p-3 bg-white rounded-full shadow-md inline-block">
                             <img src={ICPlusDark} alt="Plus Icon" />
                         </button>
                 }
