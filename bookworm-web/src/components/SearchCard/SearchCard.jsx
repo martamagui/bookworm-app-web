@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
+
 export function SearchCard({ id, image, title }) {
 
     return (
@@ -10,7 +11,9 @@ export function SearchCard({ id, image, title }) {
                 <img className="searchCard__image rounded-lg" src={image} alt="Review photo" />
                 {
                     title != null ?
-                        <p className="text-surface-variant-foreground truncate text-sm font-medium pt-2">{title}</p>
+                        <div className="flex flex-row">
+                            <p className="text-surface-variant-foreground truncate text-sm font-medium pt-2">{title}</p>
+                        </div>
                         :
                         ""
                 }

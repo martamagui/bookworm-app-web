@@ -35,24 +35,26 @@ export function useDetail() {
     const likeAction = useCallback((reviewId) => {
         likeDislikeReview(userToken, reviewId).then(data => {
             if (data) {
-                const isLiked = !detailData.liked
-                setDetailState({ ...detailData, liked: isLiked, loading: false, success: true, data: data })
+                let myData = detailState.data
+                myData.liked = !detailState.data.liked
+                setDetailState({ ...detailState, loading: false, success: true, data: myData })
             }
         }, error => {
             console.log(error)
-            setDetailState({ ...detailData, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
+            setDetailState({ ...detailState, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
         })
     })
 
     const saveAction = useCallback((reviewId) => {
         saveUnsave(userToken, reviewId).then(data => {
             if (data) {
-                const isSaved = !detailData.saved
-                setDetailState({ ...detailData, saved: isSaved, loading: false, success: true, data: data })
+                let myData = detailState.data
+                myData.saved = !detailState.data.saved
+                setDetailState({ ...detailState, loading: false, success: true, data: myData })
             }
         }, error => {
             console.log(error)
-            setDetailState({ ...detailData, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
+            setDetailState({ ...detailState, error: true, loading: false, errorMsg: "Algo fue mal en el servidor" })
         })
     })
 
