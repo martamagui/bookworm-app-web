@@ -23,7 +23,6 @@ export function CreateReview() {
         setReviewDescripition,
         setScore, addHashTag } = useNewReview();
 
-    //TODO añadir las chips de la reseña
     const addChip = () => {
         addHashTag(reviewState.hashtagText)
     }

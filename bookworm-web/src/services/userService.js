@@ -11,10 +11,19 @@ export const fetchCreateAccount = async (data) => {
 
 //-------------------> GET
 export const getUserById = async (id, token) => {
-  let response = await api
-    .get(`user/${id}`, { headers: token })
-    .then(({ response }) => response)
-    .catch(error => console.log(error))
+  try {
+    let response = await api.get(`/user/${id}`, { headers: { Authorization: token } })
+    return response.data
+  } catch (error) {
+    console.log("error")
+  }
+
+};
+
+export const getProfileInfo = async (token) => {
+  let response = await api.get(`/profile/my-profile`, { headers: { Authorization: token } })
+    .catch(error => console.log(`❗ ${error}`))
+  return response.data
 };
 
 export const fetchIsUserNameAvailable = async (userName) => {

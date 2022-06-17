@@ -9,7 +9,6 @@ import { UserContext, UserContextProvider } from "./context/UserContext";
 
 function App() {
 
-  //TODO sacar a un hook y completar
   const user = useContext(UserContext)
 
   return (
