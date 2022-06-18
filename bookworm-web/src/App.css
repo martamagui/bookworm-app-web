@@ -588,12 +588,15 @@ input[type="range"]::-webkit-slider-thumb {
   border: 3px solid #ffff;
 }
 
-.profile__block-top .block-top__image__container .profile__button {
+.profile__block-top .block-top__image__container .profile__button__container {
   position: absolute;
-  width: 35px;
-  aspect-ratio: 1;
   bottom: 8px;
   right: 8px;
+}
+
+.profile__block-top .block-top__image__container .profile__button {
+  width: 35px;
+  aspect-ratio: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

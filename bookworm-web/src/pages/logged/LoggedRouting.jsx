@@ -12,6 +12,7 @@ import { LeftAside } from "../../components/asides/LeftAside";
 import { RightAside } from "../../components/asides/RightAside";
 import { Search } from "./views/Search";
 import { SavedReviews } from "./views/SavedReviews";
+import { Settings } from "./views/Settings";
 
 export function LoggedRouting() {
     return (
@@ -28,6 +29,7 @@ export function LoggedRouting() {
                         <Route path="/search/:type/:search" element={<Search />} />
                         <Route path="/create-review" element={<CreateReview />} />
                         <Route path="/saved-reviews" element={<SavedReviews />} />
+                        <Route path="/settings" element={<Settings />} />
                         <Route path="/*" element={<NotFound />} />
                         <Route
                             path="/login"
