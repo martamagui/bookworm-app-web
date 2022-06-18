@@ -74,7 +74,7 @@ export function Settings() {
                                         <textarea className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
                                             placeholder="Review Description" name="description"
                                             id="description" cols="30" rows="2"
-                                            onChange={(event) => { setReviewDescripition(event.target.value) }} />
+                                            onChange={(event) => { setDescription(event.target.value) }} />
                                     </div>
 
 

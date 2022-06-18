@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserContext";
 import { storage } from "../services/firebase/firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 //Services
-import { getProfileInfo } from "../services/userService";
+import { getProfileInfo, putAvatar, putBanner, putDescription, putUserName } from "../services/userService";
 
 
 export function useSettings() {
@@ -32,11 +32,7 @@ export function useSettings() {
         setSettingsState({ ...settingsState, isEditBlockVisible: !settingsState.isEditBlockVisible })
     }
 
-
     //---------- SetData
-    const setNewAvatar = (url) => {
-        setDataSate({ ...dataState, avatar: `${url}` });
-    }
 
     const setAvatar = (event) => {
         setDataSate({ ...dataState, avatarFile: event.target.files[0] });
@@ -60,6 +56,8 @@ export function useSettings() {
         setDataSate({
             ...dataState,
             description: data.description,
+            descriptionOriginal: data.description,
+            userNameOriginal: data.userName,
             userName: data.userName,
             avatar: data.avatar,
             banner: data.banner
@@ -103,12 +101,20 @@ export function useSettings() {
             setInitalUIValues(data)
         })
     }
+
     const editProfile = (event) => {
+        event.preventDefault();
         if (dataState.avatarFile != null) {
             uploadToFireBase(dataState.avatarFile, "images/avatar/");
         }
         if (dataState.bannerFile != null) {
-            setSettingsState(dataState.bannerFile, "images/banner/");
+            uploadToFireBase(dataState.bannerFile, "images/banner/");
+        }
+        if (dataState.description != dataState.descriptionOriginal) {
+            changeDescription()
+        }
+        if (dataState.userName != dataState.userNameOriginal) {
+            changeUserName()
         }
     }
 
@@ -116,19 +122,50 @@ export function useSettings() {
         if (file == null) return;
         const imageRef = ref(
             storage,
-            `${route}${Math.floor(Math.random() * 1000000).toString() + file.name}`
+            `${route}${Math.floor(Math.random() * 1000000000000).toString() + file.name}`
         );
         uploadBytes(imageRef, file).then((response) => {
             getDownloadURL(response.ref).then((url) => {
                 if (route === "images/avatar/") {
-                    setNewAvatar(url)
+                    changeAvatar(url)
                 } else {
-                    setNewBanner(url)
+                    changeBanner(url)
                 }
             });
         });
     };
 
+    const changeDescription = () => {
+        try {
+            putDescription(dataState.description, userToken)
+        } catch (error) {
+            console.log(`❗ ${error}`);
+        }
+    }
+
+    const changeUserName = () => {
+        try {
+            putUserName(dataState.userName, userToken)
+        } catch (error) {
+            console.log(`❗ ${error}`);
+        }
+    }
+
+    const changeAvatar = (link) => {
+        try {
+            putAvatar(link, userToken)
+        } catch (error) {
+            console.log(`❗ ${error}`);
+        }
+    }
+
+    const changeBanner = (link) => {
+        try {
+            putBanner(link, userToken)
+        } catch (error) {
+            console.log(`❗ ${error}`);
+        }
+    }
 
 
     return {
