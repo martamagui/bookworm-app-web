@@ -36,15 +36,16 @@ export function useSettings() {
     //---------- SetData
     const setNewAvatar = (url) => {
         setDataSate({ ...dataState, avatar: `${url}` });
-        avatarAsBg(url);
     }
 
     const setAvatar = (event) => {
         setDataSate({ ...dataState, avatarFile: event.target.files[0] });
+        setNewAvatarUI(event.target.files[0]);
     };
 
     const setBanner = (event) => {
         setDataSate({ ...dataState, bannerFile: event.target.files[0] });
+        setNewBannerUI(event.target.files[0])
     };
 
     const setUserName = (value) => {
@@ -56,7 +57,6 @@ export function useSettings() {
     };
 
     const setData = (data) => {
-        console.log(data.userName)
         setDataSate({
             ...dataState,
             description: data.description,
@@ -64,15 +64,44 @@ export function useSettings() {
             avatar: data.avatar,
             banner: data.banner
         });
-        document.getElementById("userName").value = data.userName
-        document.getElementById("description").value = data.description
     }
 
+    //-----------SetUI
+
+    const setInitalUIValues = (data) => {
+        document.getElementById("userName").value = data.userName
+        document.getElementById("description").value = data.description
+        document.getElementById("edit-banner").style.backgroundImage = `url('${data.banner}')`;
+        document.getElementById("edit-avatar").style.backgroundImage = `url('${data.avatar}')`;
+    }
+
+    const setNewAvatarUI = (file) => {
+        var reader = new FileReader();
+        reader.onloadend = () => {
+            document.getElementById('edit-avatar').style.backgroundImage = "url(" + reader.result + ")";
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+
+    const setNewBannerUI = (file) => {
+        var reader = new FileReader();
+        reader.onloadend = () => {
+            document.getElementById('edit-banner').style.backgroundImage = "url(" + reader.result + ")";
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
 
     //-----------Fetch
 
     const fetchProfileInfo = () => {
-        getProfileInfo(userToken).then(data => setData(data))
+        getProfileInfo(userToken).then(data => {
+            setData(data)
+            setInitalUIValues(data)
+        })
     }
     const editProfile = (event) => {
         if (dataState.avatarFile != null) {

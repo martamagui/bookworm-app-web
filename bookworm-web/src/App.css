@@ -221,6 +221,15 @@ input[type="range"]::-webkit-slider-thumb {
   height: 100%;
   position: relative;
   border-radius: 20px 20px 20px 55px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bannerAndAvatar__wrapper #edit-avatar {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .landing__container-bot {
