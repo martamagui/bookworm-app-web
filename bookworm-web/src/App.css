@@ -209,6 +209,20 @@ input[type="range"]::-webkit-slider-thumb {
   background-size: cover;
 }
 
+.settings__profile {
+  position: relative;
+}
+
+.settings__profile .banner {
+  aspect-ratio: 12/5;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 20px 20px 20px 55px;
+}
+
 .landing__container-bot {
   min-height: 95vh;
   background-color: #F4DED4;
@@ -569,25 +583,6 @@ input[type="range"]::-webkit-slider-thumb {
   position: relative;
 }
 
-.profile__block-top .block-top__image__container .banner {
-  aspect-ratio: 12/5;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 0px 0px 0px 55px;
-}
-
-.profile__block-top .block-top__image__container .profile__avatar {
-  position: absolute;
-  bottom: 0px;
-  aspect-ratio: 1;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100px;
-  border: 3px solid #ffff;
-}
-
 .profile__block-top .block-top__image__container .profile__button__container {
   position: absolute;
   bottom: 8px;
@@ -603,6 +598,25 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.banner {
+  aspect-ratio: 12/5;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 0px 0px 55px;
+}
+
+.profile__avatar {
+  position: absolute;
+  bottom: 0px;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100px;
+  border: 3px solid #ffff;
 }
 
 .back__button__icon {

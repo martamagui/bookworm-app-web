@@ -25,9 +25,7 @@ export function ProfileTopBlock({ data }) {
                                     <img src={ICSettings} alt="Settings Icon" />
                                 </div>
                             </Link>
-
                         </div>
-
                         :
                         <button className="profile__button__container profile__button hover:opacity-75 p-3 bg-white rounded-full shadow-md inline-block">
                             <img src={ICPlusDark} alt="Plus Icon" />

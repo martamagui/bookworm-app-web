@@ -69,8 +69,7 @@ export function useNewReview() {
         if (file == null) return;
         const imageRef = ref(
             storage,
-            `images/review/${Math.floor(Math.random() * 1000000).toString() + file.name
-            }`
+            `images/review/${Math.floor(Math.random() * 1000000).toString() + file.name}`
         );
         uploadBytes(imageRef, file).then((response) => {
             getDownloadURL(response.ref).then((url) => {
