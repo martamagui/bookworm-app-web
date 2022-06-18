@@ -44,6 +44,18 @@ export const fetchIsEmailTaken = async (email) => {
 };
 
 //-------------------> PUT
+export const putFollow = async (id, token) => {
+  try {
+    let response = await api.put(
+      `/user/follow/${id}`,
+      {},
+      { headers: { Authorization: token } }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(`❗ ${error}`);
+  }
+};
 
 export const putUserName = async (userName, token) => {
   try {

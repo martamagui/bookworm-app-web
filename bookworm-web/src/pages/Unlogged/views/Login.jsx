@@ -67,7 +67,7 @@ export function Login() {
             </div>
 
           </form>
-          <p className="py-10 text-primary-container">Not a membar yet? <Link to="/sign-up"><span className="text-primary-dark"> Sign up</span></Link></p>
+          <p className="py-10 text-primary-container">Not a member yet? <Link to="/sign-up"><span className="text-primary-dark"> Sign up</span></Link></p>
         </div>
 
         <div className="login__container__col-images z-20 hidden sm:flex flex-row justify-between w-5/12">

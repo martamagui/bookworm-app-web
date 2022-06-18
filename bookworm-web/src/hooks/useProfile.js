@@ -2,13 +2,14 @@ import { data } from "autoprefixer";
 import { useState, useContext, useCallback } from "react";
 //Inner
 import { UserContext } from "../context/UserContext";
-import { getProfileInfo, getUserById } from "../services/userService";
+import { getProfileInfo, getUserById, putFollow } from "../services/userService";
 
 export function useProfile() {
     const { userToken } = useContext(UserContext);
     const [profileState, setProfileState] = useState({
         isLoading: false,
         isError: false,
+        isFollowed: false,
         isSuccess: false,
         data: null
     });
@@ -39,11 +40,21 @@ export function useProfile() {
         }
     })
 
+    const followAction = (id) => {
+        console.log("hi")
+        putFollow(id, userToken).then(data => setProfileState({ ...profileState, isFollowed: !profileState.isFollowed }))
+    }
+
+    //-------- UI
+
+
+
     return {
         fetchProfileInfo,
         isSuccess: profileState.isSuccess,
         isLoading: profileState.isLoading,
         isError: profileState.isError,
-        data: profileState.data
+        data: profileState.data,
+        follow: followAction
     }
 }

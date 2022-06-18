@@ -56,7 +56,7 @@ export function Detail() {
         }
         {
           isSuccess ?
-            <div className="card-feed__container mb-10">
+            <div className="card-feed__container">
               <div className="card-feed__block-top flex flex-row justify-between items-center p-3">
                 <Link to={"/profile/" + detailState.data._id} replace>
                   <div className="card-feed__user-info flex flex-row items-center px-2 hover:opacity-80">
@@ -91,7 +91,17 @@ export function Detail() {
             </div>
             : ""
         }
+        <div className="tags__container flex flex-row py-2">
+          {
+            detailState.data.hastags.map((element) =>
+              <Link className="bg-primary p-0.5 px-2 mx-1 rounded-lg opacity-90 hover:opacity-80" to={"/search/hashtag/" + element}>
+                <span className="text-white font-medium text-sm"># {element}</span>
+              </Link>
+            )
+          }
+        </div>
       </div>
+
     </>
 
   );
