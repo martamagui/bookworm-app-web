@@ -2,48 +2,84 @@ import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { storage } from "../services/firebase/firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+//Services
+import { getProfileInfo } from "../services/userService";
 
 
 export function useSettings() {
+
     const { userToken } = useContext(UserContext);
     const [settingsState, setSettingsState] = useState({
         isLoading: false,
         isError: false,
         isSuccess: false,
-        isEditBlockVisible: false,
+        isEditBlockVisible: true,
         isPasswordBlockVisible: false,
+        data: []
+    });
+
+    const [dataState, setDataSate] = useState({
+        userName: "",
+        description: "",
         avatarFile: null,
         bannerFile: null,
         avatar: null,
         banner: null,
-        data: []
-    });
+    })
 
-    //----------- SetState
+    //----------- SetState UI
     const setEditBlockVisible = () => {
         setSettingsState({ ...settingsState, isEditBlockVisible: !settingsState.isEditBlockVisible })
     }
 
+
+    //---------- SetData
     const setNewAvatar = (url) => {
-        setSettingsState({ ...settingsState, avatar: `${url}` });
+        setDataSate({ ...dataState, avatar: `${url}` });
         avatarAsBg(url);
     }
 
     const setAvatar = (event) => {
-        setSettingsState({ ...settingsState, avatarFile: event.target.files[0] });
+        setDataSate({ ...dataState, avatarFile: event.target.files[0] });
     };
 
     const setBanner = (event) => {
-        setReviewState({ ...settingsState, bannerFile: event.target.files[0] });
+        setDataSate({ ...dataState, bannerFile: event.target.files[0] });
     };
 
+    const setUserName = (value) => {
+        setDataSate({ ...dataState, userName: value });
+    };
+
+    const setDescription = (value) => {
+        setDataSate({ ...dataState, description: value });
+    };
+
+    const setData = (data) => {
+        console.log(data.userName)
+        setDataSate({
+            ...dataState,
+            description: data.description,
+            userName: data.userName,
+            avatar: data.avatar,
+            banner: data.banner
+        });
+        document.getElementById("userName").value = data.userName
+        document.getElementById("description").value = data.description
+    }
+
+
     //-----------Fetch
+
+    const fetchProfileInfo = () => {
+        getProfileInfo(userToken).then(data => setData(data))
+    }
     const editProfile = (event) => {
-        if (settingsState.avatarFile != null) {
-            uploadToFireBase(settingsState.avatarFile, "images/avatar/");
+        if (dataState.avatarFile != null) {
+            uploadToFireBase(dataState.avatarFile, "images/avatar/");
         }
-        if (settingsState.bannerFile != null) {
-            setSettingsState(event.target.files[0], "images/banner/");
+        if (dataState.bannerFile != null) {
+            setSettingsState(dataState.bannerFile, "images/banner/");
         }
     }
 
@@ -67,14 +103,17 @@ export function useSettings() {
 
 
     return {
+        fetchProfileInfo,
         editProfile,
         setEditBlockVisible,
-        data: settingsState.data,
+        setDescription,
+        setUserName,
+        setAvatar,
+        setBanner,
+        data: dataState,
         isLoading: settingsState.isLoading,
         isError: settingsState.isError,
         isSuccess: settingsState.isSuccess,
         isEditBlockVisible: settingsState.isEditBlockVisible,
-        avatarFile: settingsState.avatarFile,
-        bannerFile: settingsState.bannerFile,
     }
 }

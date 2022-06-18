@@ -209,11 +209,11 @@ input[type="range"]::-webkit-slider-thumb {
   background-size: cover;
 }
 
-.settings__profile {
+.bannerAndAvatar__wrapper {
   position: relative;
 }
 
-.settings__profile .banner {
+.bannerAndAvatar__wrapper .banner {
   aspect-ratio: 12/5;
   -o-object-fit: cover;
      object-fit: cover;
