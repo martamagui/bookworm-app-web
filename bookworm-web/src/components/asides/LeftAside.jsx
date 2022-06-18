@@ -13,7 +13,7 @@ export function LeftAside() {
                 <h4 className="aside__title text-tertiary font-bold text-xl py-5">What are you reading?</h4>
                 <Link to="/create-review" className="aside__button w-9/12 flex flex-row justify-start items-center py-2 px-5">
                     <img src={IcPlus} alt="Additoin icon" className="" />
-                    <span className="text-white px-4 text-sm">Create a new review</span>
+                    <span className="text-white px-4 text-sm">New review</span>
                 </Link>
             </div>
             <div className="aside-left__pair py-10">
@@ -24,7 +24,7 @@ export function LeftAside() {
                 </Link>
             </div>
             <div className="py-6">
-                <Link to="/search/" className="banner__container flex justify-items-start p-0">
+                <Link to="/search/title/Heartstopper" className="banner__container flex justify-items-start p-0">
                     <img src={WeeklyFind} alt="Banner of weekly find - Book: She became the sun" className="banner-left" />
                 </Link>
             </div>

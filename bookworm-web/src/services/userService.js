@@ -96,3 +96,16 @@ export const putBanner = async (banner, token) => {
     console.log(`❗ ${error}`);
   }
 };
+
+export const putPassword = async (password, token) => {
+  try {
+    let response = await api.put(
+      `user/update-password`,
+      { password: password },
+      { headers: { Authorization: token } }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(`❗ ${error}`);
+  }
+};

@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserContext";
 import { storage } from "../services/firebase/firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 //Services
-import { getProfileInfo, putAvatar, putBanner, putDescription, putUserName } from "../services/userService";
+import { getProfileInfo, putAvatar, putBanner, putDescription, putPassword, putUserName } from "../services/userService";
 
 
 export function useSettings() {
@@ -14,13 +14,15 @@ export function useSettings() {
         isError: false,
         isSuccess: false,
         isEditBlockVisible: true,
-        isPasswordBlockVisible: false,
+        isPasswordBlockVisible: true,
         data: []
     });
 
     const [dataState, setDataSate] = useState({
         userName: "",
         description: "",
+        password: "",
+        password2: "",
         avatarFile: null,
         bannerFile: null,
         avatar: null,
@@ -30,6 +32,9 @@ export function useSettings() {
     //----------- SetState UI
     const setEditBlockVisible = () => {
         setSettingsState({ ...settingsState, isEditBlockVisible: !settingsState.isEditBlockVisible })
+    }
+    const setPasswordBlockVisible = () => {
+        setSettingsState({ ...settingsState, isPasswordBlockVisible: !settingsState.isPasswordBlockVisible })
     }
 
     //---------- SetData
@@ -50,6 +55,14 @@ export function useSettings() {
 
     const setDescription = (value) => {
         setDataSate({ ...dataState, description: value });
+    };
+
+    const setPassword = (value) => {
+        setDataSate({ ...dataState, password: value });
+    };
+
+    const setPassword2 = (value) => {
+        setDataSate({ ...dataState, password2: value });
     };
 
     const setData = (data) => {
@@ -167,19 +180,37 @@ export function useSettings() {
         }
     }
 
+    const changePassword = (event) => {
+        event.preventDefault();
+        if (dataState.password.length > 5 && dataState.password === dataState.password2) {
+            try {
+                putPassword(dataState.password, userToken)
+            } catch (error) {
+                console.log(`❗ ${error}`);
+            }
+        } else {
+            console.log("Las constraseñas deben coincidir.")
+        }
+    }
+
 
     return {
+        changePassword,
         fetchProfileInfo,
         editProfile,
+        setPasswordBlockVisible,
         setEditBlockVisible,
         setDescription,
         setUserName,
         setAvatar,
         setBanner,
+        setPassword,
+        setPassword2,
         data: dataState,
         isLoading: settingsState.isLoading,
         isError: settingsState.isError,
         isSuccess: settingsState.isSuccess,
         isEditBlockVisible: settingsState.isEditBlockVisible,
+        isPasswordBlockVisible: settingsState.isPasswordBlockVisible
     }
 }

@@ -16,13 +16,18 @@ export function Settings() {
     const {
         isLoading, isError, isSuccess,
         isEditBlockVisible,
+        isPasswordBlockVisible,
         setEditBlockVisible,
+        setPasswordBlockVisible,
         editProfile,
         setDescription,
         setUserName,
         setAvatar,
         setBanner,
-        fetchProfileInfo } = useSettings();
+        setPassword,
+        setPassword2,
+        fetchProfileInfo,
+        changePassword } = useSettings();
     useEffect(() => { fetchProfileInfo() }, [])
 
 
@@ -79,7 +84,7 @@ export function Settings() {
 
 
                                     <div className="createReview__input-submit">
-                                        <input id="submit" className="bg-primary mt-5 text-white p-2 px-5 rounded-full " type="submit" value="Apply changes" />
+                                        <input id="submit" className="bg-primary mt-5 text-sm text-white p-2 px-5 rounded-full " type="submit" value="Apply changes" />
                                         {
                                             isLoading ?
                                                 <div className="absolute ml-48 bg-primary rounded-xl opacity-60 py-3 self-center px-0 m-4 inline-block"> <Loader></Loader></div>
@@ -90,8 +95,40 @@ export function Settings() {
                                 </form>
                                 : ""
                         }
+                        <div className="flex flex-row justify-between p-2" onClick={setPasswordBlockVisible}>
+                            <h3 className="text-primary font-semibold text-2xl">Change Password</h3>
+                            <img src={IcArrowUp} alt="Arrow Icon" className={isPasswordBlockVisible ? "" : "rotate-180 translate-y-1"} />
+                        </div>
+                        {
+                            isPasswordBlockVisible ?
+                                <form className="" onSubmit={(event) => changePassword(event)} >
+                                    <div className="flex flex-col w-full p-1 py-2">
+                                        <label htmlFor="password1"><span className="text-primary px-3">New Password</span></label>
+                                        <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
+                                            id="password1" type="password" value={data.pasword} placeholder="New Password"
+                                            onChange={(event) => { setPassword(event.target.value) }} />
+                                    </div>
+                                    <div className="flex flex-col w-full p-1 py-2">
+                                        <label htmlFor="password2"><span className="text-primary px-3">Repeat Password</span></label>
+                                        <input className="createReview__input-text p-1 px-3 rounded-xl bg-inverse-on-surface"
+                                            id="password2" type="password" value={data.pasword2} placeholder="Repeat Password"
+                                            onChange={(event) => { setPassword2(event.target.value) }} />
+                                    </div>
 
+                                    <div className="createReview__input-submit">
+                                        <input id="submit" className="bg-primary mt-5 text-sm text-white p-2 px-5 rounded-full " type="submit" value="Change password" />
+                                        {
+                                            isLoading ?
+                                                <div className="absolute ml-48 bg-primary rounded-xl opacity-60 py-3 self-center px-0 m-4 inline-block"> <Loader></Loader></div>
+                                                :
+                                                ""
+                                        }
+                                    </div>
+                                </form>
+                                : ""
+                        }
                     </div>
+
                 </div>
             </div>
 
