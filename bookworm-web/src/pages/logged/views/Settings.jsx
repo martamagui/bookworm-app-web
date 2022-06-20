@@ -11,8 +11,6 @@ import { data } from "autoprefixer";
 
 
 export function Settings() {
-    //TODO call del perfil para previsualizar los datos.
-    //Hooks de métodos put del perfil
     const {
         isLoading, isError, isSuccess,
         isEditBlockVisible,
