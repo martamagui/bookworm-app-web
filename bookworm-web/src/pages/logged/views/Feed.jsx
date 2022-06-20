@@ -14,7 +14,7 @@ export function Feed() {
   }, [fetchFeed]);
 
   return (
-    <div className="feed_container px-10">
+    <div className="feed_container px-4 lg:px-10">
       {
         isLoading ?
           <div><FeedCardSkeleton /><FeedCardSkeleton /></div>
