@@ -10,6 +10,7 @@ import { UserContext } from "../context/UserContext";
 
 export function useNewReview() {
     const { userToken } = useContext(UserContext);
+    const navigate = useNavigate();
     const [reviewState, setReviewState] = useState({
         isLoading: false,
         isSuccess: false,
@@ -109,8 +110,7 @@ export function useNewReview() {
                 reviewDescription: reviewState.reviewDescription,
                 hashtags: reviewState.hashtags,
             };
-            postReview(userToken, body);
-            setSuccess(true)
+            postReview(userToken, body).then(response => useNavigate("/my-profile", { replace: true }))
         } else {
             setError(true)
         }

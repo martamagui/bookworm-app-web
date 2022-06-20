@@ -210,7 +210,6 @@ export function SignUp() {
         <p className="py-10 text-primary-container">Have an account? <Link to="/login"><span className="text-primary-dark"> Log in</span></Link></p>
       </div>
     </div>
-    <div className="login__bg w-full"></div>
 
   </>;
 }

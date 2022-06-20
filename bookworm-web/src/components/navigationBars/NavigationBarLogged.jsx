@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 //Assets
 import icHome from "../../assets/icons/ic_home.svg"
@@ -11,8 +10,7 @@ import { useUser } from "../../hooks/useUser";
 export function NavigationBarLogged() {
 
     const { logout } = useUser();
-
-    const handleLogOut = () => logout().then(useNavigate('/'));
+    const handleLogOut = () => logout()
 
     const [navbarOpen, setNavbarOpen] = React.useState(false);
 

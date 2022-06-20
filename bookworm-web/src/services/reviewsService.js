@@ -6,8 +6,8 @@ import { api } from "./axiosInstance";
 export const postReview = async (token, body) => {
     const response = await api
         .post("/review", body, { headers: { Authorization: token } })
-        .then(({ response }) => response)
         .catch(error => console.log(`❗ ${error}`))
+    return response.data
 }
 
 

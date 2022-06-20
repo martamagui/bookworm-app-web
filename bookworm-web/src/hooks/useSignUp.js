@@ -69,7 +69,7 @@ export function useSignUp() {
 
         let data = dataState
         setSignUpState({ ...signUpState, loading: true });
-        //TODO ver qué pasa con el response de emailtaken
+
         if (!validateEmail(data.email)) {
             setError = ("Please introduce a valid email.")
             return
@@ -112,7 +112,6 @@ export function useSignUp() {
             setError("Please introduce a valid email.")
             return false
         }
-        //return isEmailAvailable()
         return true
     }
 
@@ -181,7 +180,7 @@ export function useSignUp() {
             avatar: `https://cdn.forbes.com.mx/2019/05/22196098_1504161492952916_1933764573047722271_n-640x360.jpg`,
             banner: `https://images.unsplash.com/photo-1558210834-473f430c09ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYm9va3xlbnwwfHwwfHw%3D&w=1000&q=80`,
             subscribedToNewsLetter: true,
-        }).then((response))
+        }).then((response) => { navigate("/login", { replace: true }) })
     })
 
     return {
