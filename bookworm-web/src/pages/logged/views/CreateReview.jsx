@@ -6,7 +6,7 @@ import { Navigate } from "react-router";
 //Asssets
 import IcStar from "../../../assets/icons/ic_star.svg";
 import IcPlus from "../../../assets/icons/ic_plus.svg";
-import IcGallery from "../../../assets/icons/ic_gallery.svg";
+import IcGallery from "../../../assets/icons/ic_gallery_ligth.svg";
 
 //Hooks
 import { useNewReview } from "../../../hooks/useNewReview";
@@ -28,12 +28,12 @@ export function CreateReview() {
     }
 
     return (
-        <div className="createReview pb-12">
+        <div className="createReview px-2 pb-12">
             {
                 reviewState.isSuccess ?
                     <Navigate to="/" replace></Navigate> : ""
             }
-            <form className="" onSubmit={(event) => createPost(event)}>
+            <form onSubmit={(event) => createPost(event)}>
                 <div className="createReview__container">
                     <div className="createReview__wrapper-top">
                         <div id="image__container" className="createReview__image__container bg-surface-variant rounded-t-2xl border-outline">

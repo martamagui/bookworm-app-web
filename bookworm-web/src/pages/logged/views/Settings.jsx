@@ -34,7 +34,7 @@ export function Settings() {
     return (
         <>
             <GoBackBtn></GoBackBtn>
-            <div className="settings__container px-10 py-4">
+            <div className="settings__container px-4 lg:px-10 py-4">
                 <div className="settings__wrapper px-4 bg-white rounded-lg shadow-lg">
                     <div className="settings__profile py-4" id="edit-profile">
                         <div className="flex flex-row justify-between p-2" onClick={setEditBlockVisible}>

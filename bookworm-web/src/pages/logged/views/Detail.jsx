@@ -47,7 +47,7 @@ export function Detail() {
   return (
     <>
       <GoBackBtn />
-      <div className="detail__container  px-10 py-2">
+      <div className="detail__container  px-4 lg:px-10 py-2">
         {
           isLoading && !isSuccess ?
             <FeedCardSkeleton />
