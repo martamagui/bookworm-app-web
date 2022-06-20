@@ -8,11 +8,11 @@ import ICBookmarkDark from '../../assets/icons/ic_bookmark_dark.svg'
 import ICSettings from '../../assets/icons/ic_settings.svg'
 
 export function ProfileTopBlock({ data, follow }) {
-    let isFollowed = false;
+    
     const followAction = () => {
         follow(data._id)
-        isFollowed = !isFollowed
-        document.getElementById("follow-btn").src = isFollowed ? ICMinus : ICPlusDark
+        data.followed = !data.followed
+       
     }
     return (
         <div className="profile__block-top bg-white rounded-xl shadow-md">
@@ -36,7 +36,7 @@ export function ProfileTopBlock({ data, follow }) {
                         :
                         <button className="profile__button__container profile__button hover:opacity-75 p-3 bg-white rounded-full shadow-md inline-block flex justify-center items-center"
                             onClick={followAction}>
-                            <img id="follow-btn" src={data.followers != "0" ? ICMinus : ICPlusDark} alt="Follow/Unfollow Icon" />
+                            <img id="follow-btn" src={data.followed ? ICMinus : ICPlusDark} alt="Follow/Unfollow Icon" />
                         </button>
                 }
             </div>
