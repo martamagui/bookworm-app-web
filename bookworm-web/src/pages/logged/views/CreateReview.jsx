@@ -63,10 +63,10 @@ export function CreateReview() {
                                     <img src={IcStar} alt="Star Icon" />
                                 </div>
                             </div>
-                            <input type="range" min="1" max="10"
+                            <input type="range" min="1" max="10" step="0.1"
                                 className="slider w-full " id="score"
                                 value={reviewState.score}
-                                onChange={(event) => setScore(event.value)} />
+                                onChange={(event) => setScore(event.target.value)} />
                         </div>
                         <div className="createReview__row flex flex-row py-2">
                             <div className="flex flex-col w-6/12 p-1">
