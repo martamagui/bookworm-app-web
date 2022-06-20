@@ -20,7 +20,7 @@ export function Profile() {
     } else {
       fetchProfileInfo(id)
     }
-  }, [])
+  }, [id])
 
   return (
     <>
