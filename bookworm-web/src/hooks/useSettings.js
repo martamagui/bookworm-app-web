@@ -4,11 +4,13 @@ import { storage } from "../services/firebase/firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 //Services
 import { getProfileInfo, putAvatar, putBanner, putDescription, putPassword, putUserName } from "../services/userService";
+import { useNavigate } from "react-router";
 
 
 export function useSettings() {
 
     const { userToken } = useContext(UserContext);
+    const navigate = useNavigate();
     const [settingsState, setSettingsState] = useState({
         isLoading: false,
         isError: false,
@@ -115,8 +117,10 @@ export function useSettings() {
         })
     }
 
+
     const editProfile = (event) => {
         event.preventDefault();
+
         if (dataState.avatarFile != null) {
             uploadToFireBase(dataState.avatarFile, "images/avatar/");
         }
@@ -129,6 +133,7 @@ export function useSettings() {
         if (dataState.userName != dataState.userNameOriginal) {
             changeUserName()
         }
+        setTimeout(() => { navigate('/my-profile', { replace: true }) }, 1500);
     }
 
     const uploadToFireBase = (file, route) => {
