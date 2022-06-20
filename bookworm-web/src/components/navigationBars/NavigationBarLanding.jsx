@@ -29,9 +29,6 @@ export function NavigationBarLading() {
                         <li onClick={() => setNavbarOpen(false)} className="py-2 md:py-0">
                             <Link to="/about"><span className="py-14 md:py-0 p-3 md:font-extralight text-xl">About us</span></Link>
                         </li>
-                        <li onClick={() => setNavbarOpen(false)} className="py-2 md:py-0">
-                            <Link to="/contact"><span className="py-14 md:py-0 p-3 md:font-extralight text-xl">Contact</span></Link>
-                        </li>
                         <li onClick={() => setNavbarOpen(false)} className="py-3 md:py-0">
                             <Link className="p-2 font-light" to="/login"><span className="text-lg p-2 px-8 bg-orange-600 rounded-full" >Login</span></Link>
                         </li>
