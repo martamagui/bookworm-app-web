@@ -110,7 +110,7 @@ export function useNewReview() {
                 reviewDescription: reviewState.reviewDescription,
                 hashtags: reviewState.hashtags,
             };
-            postReview(userToken, body).then(response => useNavigate("/my-profile", { replace: true }))
+            postReview(userToken, body).then(response => navigate("/my-profile", { replace: true }))
         } else {
             setError(true)
         }
