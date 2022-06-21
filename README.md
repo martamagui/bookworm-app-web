@@ -40,7 +40,6 @@ Yo will need firstly to set the **.env** file. You can use **env.sample** as tem
 
 ```bash
 # Installing proyect!
-
 cd bookworm-web
 
 npm install
