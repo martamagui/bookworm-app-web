@@ -37,7 +37,7 @@ You'll be able to:
 
 ## Before running Proyect
 
-Yo will need firstly to set the **.env** file. You can use **env.sample** as template to set your firebase proyect and API link.
+You'll need firstly to set the **.env** file. You can use **env.sample** as template to set your firebase proyect and API link.
 
 ```bash
 # Installing proyect!
