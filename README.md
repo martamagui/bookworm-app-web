@@ -29,6 +29,7 @@ You'll be able to:
 - Scss
 - JavaScript
 - ReactJs
+- Firebase
 - Axios
 - Custom Hooks
 - Tailwind
