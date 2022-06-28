@@ -14,30 +14,35 @@ export function ProfileTopBlock({ data, follow }) {
         data.followed = !data.followed
        
     }
+    
+    const buttons = (isMe) =>{
+        return isMe ?
+        <div className="flex flex-row profile__button__container">
+            <Link to="/saved-reviews">
+                <div className="profile__button hover:opacity-85 p-2 mx-3 bg-white rounded-full shadow-md inline-block">
+                    <img src={ICBookmarkDark} alt="Bookmark Icon" />
+                </div>
+            </Link>
+            <Link to="/settings">
+                <div className="profile__button hover:opacity-85 p-2 bg-white rounded-full shadow-md inline-block">
+                    <img src={ICSettings} alt="Settings Icon" />
+                </div>
+            </Link>
+        </div>
+        :
+        <button className="profile__button__container profile__button hover:opacity-85 p-3 bg-white rounded-full shadow-md flex justify-center items-center"
+            onClick={followAction}>
+            <img id="follow-btn" src={data.followed ? ICMinus : ICPlusDark} alt="Follow/Unfollow Icon" />
+        </button>
+    }
+
     return (
         <div className="profile__block-top bg-white rounded-xl shadow-md">
             <div className="block-top__image__container">
                 <img src={data.banner} alt="Profile banner" className="banner" />
                 <img src={data.avatar} alt="Profile Avatar" className="profile__avatar rounded-full" />
                 {
-                    data.isMe ?
-                        <div className="flex flex-row profile__button__container">
-                            <Link to="/saved-reviews">
-                                <div className="profile__button hover:opacity-75 p-2 mx-3 bg-white rounded-full shadow-md inline-block">
-                                    <img src={ICBookmarkDark} alt="Bookmark Icon" />
-                                </div>
-                            </Link>
-                            <Link to="/settings">
-                                <div className="profile__button hover:opacity-75 p-2 bg-white rounded-full shadow-md inline-block">
-                                    <img src={ICSettings} alt="Settings Icon" />
-                                </div>
-                            </Link>
-                        </div>
-                        :
-                        <button className="profile__button__container profile__button hover:opacity-75 p-3 bg-white rounded-full shadow-md inline-block flex justify-center items-center"
-                            onClick={followAction}>
-                            <img id="follow-btn" src={data.followed ? ICMinus : ICPlusDark} alt="Follow/Unfollow Icon" />
-                        </button>
+                    buttons(data.isMe)
                 }
             </div>
             <div className="block-top__content__container p-3">

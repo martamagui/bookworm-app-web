@@ -23,11 +23,11 @@ export function Profile() {
   }, [id])
 
   return (
-    <>
+    <div>
       <GoBackBtn />
       {
         data != null ?
-          <div className="profile__wrapper  px-4 lg:px-10 py-4">
+          <div className="profile__wrapper px-4 md:px-10 py-4">
             <ProfileTopBlock data={data} follow={follow}></ProfileTopBlock>
             <div className="profile__reviews__container p-2 mt-4 sm:p-0 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2">
               {
@@ -47,6 +47,6 @@ export function Profile() {
             </div>
           </div>
       }
-    </>
+    </div>
   );
 }
